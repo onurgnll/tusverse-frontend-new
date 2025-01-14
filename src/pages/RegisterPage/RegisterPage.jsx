@@ -1,6 +1,6 @@
 function RegisterPage() {
     return ( <div>
-        asdfghgfjh
+        asdfghg
     </div> );
 }
 
