@@ -1,0 +1,39 @@
+/* For the labels */
+/* For the labels */
+.MuiFormLabel-root {
+    font-weight: bold; /* Make labels bold */
+   
+  }
+  
+  /* For TextField components */
+  .MuiOutlinedInput-root {
+    border-radius: 12px; /* Apply border radius to the input fields */
+ 
+  }
+  
+  /* For the login button */
+  .MuiButton-root {
+    border-radius: 12px; /* Apply border radius to the button */
+    color: #00C7D5;
+  }
+  
+  /* Adjust the login button to be 20% from the left */
+  .login-button-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 40%; /* Position the button 20% from the left */
+    
+  }
+  
+
+  /* Tusverse mobil uygulaması yazısını mavi yap */
+  .mobile-app-text {
+    color: #00C7D5;
+  }
+  
+  /* Diğer tüm yazılar için varsayılan siyah renk */
+  .default-text {
+    color: black;
+  }
+  
