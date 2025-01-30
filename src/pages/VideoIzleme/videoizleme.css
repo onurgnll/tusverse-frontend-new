@@ -1,0 +1,32 @@
+.ratio {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+/* List group item hover effect */
+.list-group-item {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer; /* Make it clear that the item is clickable */
+}
+
+.list-group-item:hover {
+  background-color: #f0f0f0; /* Light background color on hover */
+  transform: scale(1.05); /* Slightly enlarge the item to make it stand out */
+}
+
+/* Optional: Change text color on hover */
+.list-group-item:hover span {
+  color: #007bff !important; /* Change text color to blue */
+}
+
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    line-height: 1.5;
+  }
+  

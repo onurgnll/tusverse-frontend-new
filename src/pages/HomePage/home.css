@@ -1,0 +1,599 @@
+header, footer {
+  margin-bottom: 20px;
+}
+/* Kart konteynerini daha duyarlı hale getirme */
+/* Kart konteynerini daha duyarlı hale getirme */
+.card2-container {
+  display: flex;
+  flex-wrap: wrap !important; /* Küçük ekranlarda kartların alt alta gelmesini sağlar */
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card2 {
+  display: flex;
+  flex-direction: row;
+  width: 100%; /* Varsayılan olarak tam genişlik */
+  max-width: 500px; /* Büyük ekranlarda genişliği sınırla */
+  height: auto; /* Yüksekliği içeriğe göre ayarla */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.card2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card2-img-left {
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card2-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 200px !important;
+}
+
+.card2-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card2-text {
+  font-size: 0.9rem;
+  color: #666;
+  flex-grow: 1;
+}
+
+.card2 .btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #0d6efd;
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card2 .btn:hover {
+  background-color: #0048c1;
+  transform: scale(1.05);
+}
+/* Tablet ve küçük ekranlar için duyarlılık */
+@media (max-width: 1024px) {
+  .card2-container {
+    flex-direction: column !important; /* 1024px ve daha küçük ekranlarda alt alta dizme */
+    align-items: center;
+  }
+
+  .card2 {
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .card2-img-left {
+    width: 100%;
+    height: 200px; /* Küçük ekranlarda resmin yüksekliği */
+  }
+
+  .card2-body {
+    width: 100%;
+  }
+}
+
+@media (max-width: 828px) {
+  .card2-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card2 {
+    flex-direction: column;
+    width: 100%; /* Küçük ekranlarda genişliği azalt */
+    max-width: 300px;
+  }
+
+  .card2-img-left {
+    width: 120%;
+    height: 100px !important;
+  }
+
+  .card2-body {
+    width: 100%;
+  }
+}
+
+
+.custom-dots {
+  position: absolute;
+  bottom: 10px; /* Dots'u alt kısma yerleştir */
+  left: 50% !important;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Noktalar arasındaki boşluğu ayarlayın */
+}
+
+.custom-dots button {
+  background-color: #691212 !important;
+  border: none;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.custom-dots button:hover {
+  opacity: 1;
+}
+
+.custom-dots .slick-active button {
+  background-color: #00d5e0; /* Aktif nokta rengini ayarlayın */
+}
+
+
+
+.img-1 {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  margin-left: 30%;
+}
+
+.img-2 {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  margin-left: 190%;
+  margin-top: -100%;
+}
+
+.text-left {
+  text-align: left;
+  margin-left: 10%;
+}
+
+.custom-section {
+  margin-bottom: 20px;
+}
+
+.section-text {
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.gradient-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(150deg, #00D5E0, #FFE5E5);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  min-height: 50px;
+  max-height: 100px;
+}
+
+.gradient-btn:hover {
+  opacity: 0.9;
+}
+
+.btn-icon {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.gradient-div, .gradient-div1, .gradient-div2 {
+display: flex;
+align-items: center;
+
+color: white;
+padding: 10px 15px;
+border-radius: 5px;
+cursor: pointer;
+transition: background 0.3s;
+margin-bottom: 8px;
+}
+.gradient-div{
+background: linear-gradient(50deg, #09989f, #fec0c0);
+}
+.gradient-div1{
+background: linear-gradient(50deg, #eb26b3, #f0b4b4);
+}
+.gradient-div2{
+background: linear-gradient(50deg, #e61d1d, #ec6a6a);
+}
+
+.gradient-div:hover,
+.gradient-div1:hover,
+.gradient-div2:hover {
+background: linear-gradient(90deg, #40a9ff, #69c0ff);
+}
+
+.div-icon {
+margin-right: 10px;
+font-size: 20px;
+}
+
+.section-text {
+margin-bottom: 5px;
+font-size: 14px;
+color: #666;
+}
+
+
+.text-danger {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.alt-kisim {
+margin-top: 20px;
+}
+
+.card-custom {
+background: linear-gradient(rgba(0, 123, 255, 0.3), rgba(0, 123, 255, 0.3)),
+  url("src/assets/images/denemesınavı.png");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+color: white !important;
+border: none;
+border-radius: 15px;
+padding: 20px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+font-size: 1.5rem;
+font-weight: bold;
+color: white; /* Başlık beyaz */
+}
+
+.card-date {
+font-size: 1.2rem;
+margin-bottom: 20px;
+color: white; /* Tarih beyaz */
+}
+
+.card-button {
+background-color: white; /* Buton beyaz */
+color: #0d3968 !important; /* Yazı mavi */
+border: none;
+padding: 10px 20px;
+font-size: 1rem;
+border-radius: 10px;
+transition: all 0.3s;
+font-weight: bold !important;
+}
+
+.card-button:hover {
+background-color: #f8f9fa; /* Hafif gri hover etkisi */
+color: #0056b3; /* Daha koyu mavi hover etkisi */
+}
+
+
+/* Customize the carousel navigation arrows */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+background-color: black; /* Change the arrow color to black */
+width: 20px; /* Adjust the width for a smaller size */
+height: 20px; /* Adjust the height for a smaller size */
+border-radius: 50%; /* Optional: Make the arrows rounded */
+margin-left: 70%;
+}
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+font-size: 1.5rem; /* Optional: Adjust the font size if needed */
+}
+
+
+/* Container for the Eğitimlerim section */
+.trainings-section {
+  padding: 50px 0;
+}
+
+.trainings-section h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Style for each instructor card */
+.trainings-section .card {
+  border: none; /* Removes the default border */
+  border-radius: 10px; /* Adds rounded corners to the card */
+  overflow: hidden; /* Ensures the content stays within the rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  max-width: 300px;
+  margin-top: 20px;
+}
+
+.trainings-section .card:hover {
+  transform: scale(1.05); /* Slightly enlarges the card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases shadow intensity on hover */
+}
+
+/* Style for the instructor image */
+.trainings-section .instructor-img {
+  width: 100%;
+  height: auto; /* Adjust based on your desired image size */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  /* Adds a border between the image and text */
+}
+
+/* Card body styles */
+.trainings-section .card-body {
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9; /* Light background for the text */
+}
+
+.trainings-section .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333; /* Dark color for the name */
+  margin-bottom: 10px;
+}
+
+.trainings-section .card-text {
+  font-size: 1rem;
+  color: #777; /* Lighter color for the section */
+}
+.container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.info-box-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* Küçük ekranlar için yan yana ve alt alta hizalama */
+}
+
+.info-box-center {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.info-box {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  width: 200px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.info-box img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.info-box-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.info-box-value {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* 1024px altında yan yana iki kutu ve altta ortalanmış üçüncü kutu */
+@media (max-width: 1024px) {
+  .info-box-row {
+    justify-content: center;
+  }
+
+  .info-box {
+    width: 180px; /* Daha küçük boyut */
+    height: 130px;
+  }
+
+  .info-box-center {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+/* 768px ve altında kutuların küçülmesi ve alt alta gelmesi */
+@media (max-width: 76z8px) {
+  .info-box-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-box {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.custom2-dots {
+  position: absolute;
+  bottom: 10px; /* Dots'u alt kısma yerleştir */
+  left: 50% !important;
+  transform: translateX(-50%);
+  top: 270px;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Noktalar arasındaki boşluğu ayarlayın */
+}
+
+.custom2-dots button {
+  background-color: #4216d3 !important;
+  border: none;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.custom2-dots button:hover {
+  opacity: 1;
+}
+
+.custom2-dots .slick-active button {
+  background-color: #00d5e0; /* Aktif nokta rengini ayarlayın */
+}
+
+
+/* Adjust for smaller screens (tablets, mobiles) */
+@media (max-width: 1024px) {
+  .img-1, .img-2 {
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 20px;
+  }
+
+  .text-left {
+      text-align: center;
+      margin-left: 0;
+  }
+
+  .gradient-btn {
+      width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Ensure images do not overflow */
+  .img-1, .img-2 {
+      max-width: 100%;
+      margin-left: 0;
+      margin-bottom: 15px;
+  }
+
+  /* Adjust text */
+  .text-left {
+      text-align: center;
+  }
+
+  /* Adjust buttons and sections */
+  button {
+      font-size: 14px;
+      width: 100%;
+  }
+
+  .gradient-btn {
+      max-width: 100%;
+      margin-top: 10px;
+  }
+
+  .gradient-div {
+      flex-direction: column;  /* Stack the buttons vertically */
+      padding: 15px;
+  }
+  
+  /* For info-boxes */
+  .info-box-row {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .card-custom {
+      padding: 15px;
+      max-width: 100%;
+  }
+
+  /* Adjust the size of the custom dots */
+  .custom-dots li {
+      width: 80px;
+      height: 8px;
+  }
+
+  .custom-dots {
+      bottom: -30px;
+  }
+
+  /* Additional responsive fixes */
+  .info-box-center {
+      justify-content: center;
+  }
+}
+
+/* Handle very small screen sizes (phones) */
+@media (max-width: 480px) {
+  .img-1, .img-2 {
+      width: 100%;
+      margin-left: 0;
+  }
+
+  .gradient-btn {
+      font-size: 14px;
+  }
+
+  /* Stack elements vertically */
+  .card-custom {
+      max-width: 100%;
+  }
+
+  .gradient-div, .gradient-div1, .gradient-div2 {
+      flex-direction: column;
+      padding: 10px 15px;
+  }
+
+  .info-box-row {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .info-box {
+      width: 100%;
+  }
+
+  .custom-dots {
+      bottom: -30px;
+  }
+}
