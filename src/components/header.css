@@ -1,13 +1,21 @@
 .header-container {
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
   background-color: #fff;
-  height: 150px;
-  position: relative;
+  height: 150px; /* Daha küçük bir yükseklik ayarlayabilirsin */
+  position: sticky; /* Sayfanın üstüne sabitle */
+  top: 0px; /* Sayfanın en üstüne yapıştır */
+  left: 0;
+  width: 100%; /* Sayfanın tamamını kaplasın */
+  z-index: 1000; /* Diğer elementlerin üstünde olsun */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti ekle */
 }
+
+
+
 
 /* Logo */
 .logo-container {
@@ -117,121 +125,45 @@
 .custom-button.forestgreen:hover {
   background-color: #228b22; /* Forest green on hover */
 }
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
-  /* For tablets and smaller screens */
+/* Mobil Menü */
+.mobile-menu {
+  display: none; /* Varsayılan olarak gizli */
+}
+
+/* Ekran 768px ve altındayken geçerli olacak stiller */
+@media (max-width: 758px) {
   .header-container {
-    flex-direction: column;
-    height: auto;
+    flex-direction: column; /* Dikey hizalama */
     align-items: center;
   }
 
-  .logo-container {
-    position: relative;
-    left: 0;
-    top: 0;
-    transform: none;
-    margin-bottom: 15px;
+  .logo {
+    margin-top: -70px;
   }
 
-  .search-bar {
-    max-width: 400px;
-    margin-top: 10px;
+  .mobile-menu {
+    display: block; /* Mobilde görünsün */
+    width: 90%;
+    text-align: center;
+    margin-top: -50px;
   }
 
-  .button-container {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-  }
-
-  .button-row {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .custom-button {
-    width: 100%; /* Make buttons full width */
-    font-size: 1rem;
-  }
-
-  /* Adjust logo size for smaller screens */
-  .logo-container img {
-    max-height: 100px;
+  .mobile-menu .dropdown-toggle {
+    width: 50%;
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 770px) {
-  /* For mobile devices */
+@media (max-width: 768px) {
   .header-container {
-    flex-direction: column;
+    margin-left: -30px;
     align-items: center;
-    padding: 10px;
-  }
-
-  .logo-container {
-    margin-bottom: 5px;
-  }
-
-  .search-bar {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .top-button-row {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .button-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .button-row {
-    width: 48%; /* Each row will have two buttons, side by side */
-  }
-
-  .custom-button {
-    width: 90%; /* Make buttons fit smaller screens */
-    font-size: 1rem;
-  }
-
-  /* Adjust logo size */
-  .logo-container img {
-    max-height: 180px;
-    align-items: center;
-    flex-direction: column;
-    margin-left: 35%;
   }
 }
 
-@media (max-width: 480px) {
-  /* For extra small screens (phones) */
+@media (max-width: 468px) {
   .header-container {
-    flex-direction: column;
+    margin-left: 0px;
     align-items: center;
-    padding: 5px 10px;
-  }
-
-  .logo-container img {
-    max-height: 100px; /* Reduce logo size further */
-  }
-
-  .search-bar {
-    width: 80%;
-    margin-bottom: 15px;
-  }
-
-  .button-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .custom-button {
-    width: 90%; /* Buttons full width on small screens */
-    font-size: 1rem;
   }
 }

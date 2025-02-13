@@ -5,9 +5,8 @@ import Footer from "../../../components/Footer";
 const KitapSatis = () => {
     return (
         <>
-        <Header />
         <BookSection />
-        <Footer />
+        
         </>
     )
 };

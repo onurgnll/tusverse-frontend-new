@@ -3,8 +3,8 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="footer text-white mb-0">
-      <div className="container py-4">
+    <footer className="container-fluid footer text-white mb-0 ">
+      <div className=" py-4">
         <div className="row">
           {/* Sol Bölüm */}
           <div className="col-md-3 d-flex flex-column justify-content-between">

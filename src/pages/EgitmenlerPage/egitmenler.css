@@ -1,27 +1,63 @@
-/* InstructorGrid.css */
+.egitmenler-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: flex-start;
+  text-align: center !important;
+  margin-top: 50px; 
+}
+
+
+.egitmenler-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 40px; 
+  padding-bottom: 10px;
+  border-bottom: 2px solid #5b1212;
+  width: 100%; 
+  text-align: center; 
+}
+
+
+.egitmenler-row {
+  display: flex;
+  justify-content: center;
+  
+}
+
+
 .card-img {
-    height: 250px;
-    object-fit: cover;
-    width: 100%;
-    border: none;
-    transition: transform 0.3s ease; /* Add transition for smooth scaling */
+  width: 100%;
+  max-width: 350px;
+  max-height: 300px; 
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width:768px){
+  .card{
+    width: 400px;
   }
-  
-  .card-img:hover {
-    transform: scale(1.1); /* Scale the image by 10% on hover */
+}
+@media (max-width:468px){
+  .card{
+    width: 300px;
   }
-  
-  .card {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-  }
-  
-  .card-title,
-  .card-text {
-    font-weight: bold;
-  }
-  
-  .card:hover {
-    cursor: pointer;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Hover effect for card */
-  }
-  
+}

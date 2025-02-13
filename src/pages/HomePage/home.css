@@ -1,11 +1,10 @@
 header, footer {
   margin-bottom: 20px;
 }
-/* Kart konteynerini daha duyarlı hale getirme */
-/* Kart konteynerini daha duyarlı hale getirme */
+
 .card2-container {
   display: flex;
-  flex-wrap: wrap !important; /* Küçük ekranlarda kartların alt alta gelmesini sağlar */
+  flex-wrap: wrap !important; 
   gap: 20px;
   justify-content: center;
   align-items: flex-start;
@@ -14,9 +13,9 @@ header, footer {
 .card2 {
   display: flex;
   flex-direction: row;
-  width: 100%; /* Varsayılan olarak tam genişlik */
-  max-width: 500px; /* Büyük ekranlarda genişliği sınırla */
-  height: auto; /* Yüksekliği içeriğe göre ayarla */
+  width: 100%; 
+  max-width: 500px;
+  height: auto; 
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
@@ -77,51 +76,7 @@ header, footer {
   background-color: #0048c1;
   transform: scale(1.05);
 }
-/* Tablet ve küçük ekranlar için duyarlılık */
-@media (max-width: 1024px) {
-  .card2-container {
-    flex-direction: column !important; /* 1024px ve daha küçük ekranlarda alt alta dizme */
-    align-items: center;
-  }
 
-  .card2 {
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .card2-img-left {
-    width: 100%;
-    height: 200px; /* Küçük ekranlarda resmin yüksekliği */
-  }
-
-  .card2-body {
-    width: 100%;
-  }
-}
-
-@media (max-width: 828px) {
-  .card2-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card2 {
-    flex-direction: column;
-    width: 100%; /* Küçük ekranlarda genişliği azalt */
-    max-width: 300px;
-  }
-
-  .card2-img-left {
-    width: 120%;
-    height: 100px !important;
-  }
-
-  .card2-body {
-    width: 100%;
-  }
-}
 
 
 .custom-dots {
@@ -347,51 +302,28 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases shadow intensity on hover */
 }
 
-/* Style for the instructor image */
-.trainings-section .instructor-img {
-  width: 100%;
-  height: auto; /* Adjust based on your desired image size */
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  /* Adds a border between the image and text */
-}
 
-/* Card body styles */
-.trainings-section .card-body {
-  padding: 20px;
-  text-align: center;
-  background-color: #f9f9f9; /* Light background for the text */
-}
 
-.trainings-section .card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #333; /* Dark color for the name */
-  margin-bottom: 10px;
-}
-
-.trainings-section .card-text {
-  font-size: 1rem;
-  color: #777; /* Lighter color for the section */
-}
 .container {
   text-align: center;
   margin-top: 2rem;
 }
-
 .info-box-row {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  flex-wrap: wrap; /* Küçük ekranlar için yan yana ve alt alta hizalama */
+  flex-wrap: wrap; /* Kutuların doğru şekilde yerleşmesini sağlar */
 }
 
 .info-box-center {
-  margin-top: 1rem;
   display: flex;
   justify-content: center;
+  width: 100%; /* Ortadaki kutu tam genişlik alsın */
+  margin-top: 20px; /* Üstte biraz boşluk bırakmak için */
 }
 
 .info-box {
+  
   background-color: #f9f9f9;
   border-radius: 8px;
   border: 2px solid transparent;
@@ -410,6 +342,7 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+
 .info-box img {
   width: 40px;
   height: 40px;
@@ -427,36 +360,6 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
   color: #333;
 }
 
-/* 1024px altında yan yana iki kutu ve altta ortalanmış üçüncü kutu */
-@media (max-width: 1024px) {
-  .info-box-row {
-    justify-content: center;
-  }
-
-  .info-box {
-    width: 180px; /* Daha küçük boyut */
-    height: 130px;
-  }
-
-  .info-box-center {
-    display: flex;
-    justify-content: center;
-  }
-}
-
-
-/* 768px ve altında kutuların küçülmesi ve alt alta gelmesi */
-@media (max-width: 76z8px) {
-  .info-box-row {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .info-box {
-    width: 150px;
-    height: 150px;
-  }
-}
 
 .custom2-dots {
   position: absolute;
@@ -507,7 +410,7 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 600px) and (max-width: 768px) {
   /* Ensure images do not overflow */
   .img-1, .img-2 {
       max-width: 100%;
@@ -525,6 +428,20 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
       font-size: 14px;
       width: 100%;
   }
+  .card2 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card2-img-left {
+    width: 100% !important;
+    height: 180px !important;
+    border-radius: 8px;
+  }
+
+  .card2-body {
+    padding: 15px;
+  }
 
   .gradient-btn {
       max-width: 100%;
@@ -539,6 +456,8 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
   /* For info-boxes */
   .info-box-row {
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 15px;
   }
 
@@ -558,13 +477,45 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
   }
 
   /* Additional responsive fixes */
+ 
   .info-box-center {
       justify-content: center;
+  }
+  
+
+  .justify-content-center {
+    flex-wrap: wrap !important; /* Kartların mobilde düzgün hizalanmasını sağlar */
+  }
+  .img-2 {
+    width: 100%; /* Ensure the image takes full width on smaller screens */
+    height: 400px;    
+    
+    margin-top: -500px;
+    margin-left: 400px;
+  }
+
+  /* Adjust layout for small screens */
+  .mb-5 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .text-left {
+    flex: 1;
+  }
+
+  .col-md-8 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 /* Handle very small screen sizes (phones) */
 @media (max-width: 480px) {
+  
+  
+ 
   .img-1, .img-2 {
       width: 100%;
       margin-left: 0;
@@ -586,14 +537,152 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
 
   .info-box-row {
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 10px;
   }
 
   .info-box {
-      width: 100%;
+    
+      width: 50%;
+      height: 40%;
   }
+ 
 
   .custom-dots {
       bottom: -30px;
+  }
+  .card2 {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card2-img-left {
+    width: 100% !important;
+    height: 500px;
+  }
+
+  .card2-body {
+    padding: 15px;
+  }
+
+  /* Ok Butonları Küçülsün */
+  .btn-outline-secondary {
+    font-size: 1px;
+    padding: 0px 0px;
+  }
+}
+@media (max-width: 992px) {
+  /* 992px (md) ve altında sadece 1 kart görünsün */
+  .product-card {
+    display: block;
+  }
+
+  /* Büyük ekranda 2. kartı gizle */
+  .d-lg-block {
+    display: none !important;
+  }
+
+  .card2 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card2-img-left {
+    width: 100% !important;
+    height: 180px !important;
+    border-radius: 8px;
+    
+  }
+
+  .card2-body {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .card2-container {
+    flex-direction: column !important; 
+    align-items: center;
+  }
+
+  .card2 {
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .card2-img-left {
+    width: 100%;
+    height: 200px; /* Küçük ekranlarda resmin yüksekliği */
+  }
+
+  .card2-body {
+    width: 100%;
+  }
+}
+
+@media (max-width: 828px) {
+  .card2-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card2 {
+    flex-direction: column;
+    width: 100%; /* Küçük ekranlarda genişliği azalt */
+    max-width: 300px;
+  }
+
+  .card2-img-left {
+    width: 120%;
+    height: 100px !important;
+  }
+
+  .card2-body {
+    width: 100%;
+  }
+}
+@media (max-width: 460px) {
+  .card2-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card2 {
+    flex-direction: column;
+    width: 100%; /* Küçük ekranlarda genişliği azalt */
+    max-width: 300px;
+    height: 300px;
+  }
+
+  .card2-img-left {
+    margin-top: 90px;
+    width: 120%;
+    height: 120px !important;
+  }
+
+  .card2-body {
+    width: 100%;
+  }
+  .card2-body h5 {
+    font-size: 1rem; /* Başlığı küçült */
+  }
+
+  .card2-body p {
+    font-size: 0.875rem; /* Açıklamayı küçült */
+  }
+
+  .card2-body .btn {
+    font-size: 0.875rem; /* Buton yazısını küçült */
+    padding: 6px 12px; /* Butonun iç boşluğunu küçült */
+  }
+
+  .card2-body .btn svg {
+    width: 16px;
+    height: 16px; /* Sepet ikonunu küçült */
   }
 }

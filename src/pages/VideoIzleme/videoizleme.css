@@ -1,32 +1,60 @@
-.ratio {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
+/* Genel Stiller */
+.video-container {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    margin-left: 5%;
   }
   
-/* List group item hover effect */
-.list-group-item {
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  cursor: pointer; /* Make it clear that the item is clickable */
-}
-
-.list-group-item:hover {
-  background-color: #f0f0f0; /* Light background color on hover */
-  transform: scale(1.05); /* Slightly enlarge the item to make it stand out */
-}
-
-/* Optional: Change text color on hover */
-.list-group-item:hover span {
-  color: #007bff !important; /* Change text color to blue */
-}
-
-  
-  .card-title {
-    font-size: 1.25rem;
+  .video-title {
+    font-size: 1.2rem;
     font-weight: bold;
+    margin-top: 10px;
   }
   
-  .card-text {
-    line-height: 1.5;
+  .video-list {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  /* Responsive Tasarım */
+  @media (max-width: 992px) {
+    .video-container {
+      max-width: 100%;
+      margin-left: 10px;
+    }
+    .video-title {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .video-container iframe {
+      height: 300px;
+      margin-left: -25px;
+    }
+    .video-title {
+      text-align: center;
+    }
+    .video-list {
+       
+      max-height: 200px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .video-container iframe {
+        margin-top: 30px;
+      height: 250px;
+      margin-left: -15px;
+      
+    }
+    .video-title {
+       
+      font-size: 0.9rem;
+    }
+    .video-list {
+      font-size: 0.85rem;
+    }
   }
   

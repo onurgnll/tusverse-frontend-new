@@ -61,7 +61,6 @@ export default function PricingPage() {
 
   return (
     <>
-      <Header />
       <Grid
         container
         spacing={3}
@@ -83,7 +82,7 @@ export default function PricingPage() {
           </Grid>
         ))}
       </Grid>
-      <Footer />
+      
     </>
   );
 }
