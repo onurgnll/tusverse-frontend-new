@@ -1,17 +1,71 @@
 /* For the labels */
 /* For the labels */
+.login-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.form-container {
+  max-width: 400px;
+}
+
+.login-button {
+  width: 100%;
+  margin-top: 15px;
+  background-color: #00C7D5;
+  color: #fff;
+  border-radius: 12px;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  z-index: 10;
+}
+
+.phone-image {
+  width: 80% !important;
+  max-width: 300px;
+  margin-left: -100px;
+  margin-right: 20px;
+}
+
+.text-block {
+  max-width: 350px;
+  margin-top: -150px;
+  margin-left: 250px;
+}
+
+.highlight-text {
+  color: #00C7D5;
+}
+
+.second-image-container {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 10px;
+  margin-left: 500px;
+  z-index: 10;
+}
+
+.second-image {
+  width: 75%;
+}
 .MuiFormLabel-root {
-    font-weight: bold; /* Make labels bold */
+    font-weight: bold; 
    
   }
   
-  /* For TextField components */
+ 
   .MuiOutlinedInput-root {
-    border-radius: 12px; /* Apply border radius to the input fields */
+    border-radius: 12px; 
  
   }
   
-  /* For the login button */
+ 
   .MuiButton-root {
     border-radius: 12px; /* Apply border radius to the button */
     color: #00C7D5;
@@ -35,5 +89,78 @@
   /* Diğer tüm yazılar için varsayılan siyah renk */
   .default-text {
     color: black;
+  }
+  @media (max-width: 1024px) {
+    .image-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .phone-image {
+      width: 70%;
+      max-width: 180px;
+      margin: 0 auto 10px;
+    }
+  
+    .text-block {
+      text-align: center;
+    }
+  
+    .second-image-container {
+      margin-left: 0;
+      margin-top: 20px;
+      text-align: center;
+    }
+  
+    .second-image {
+      width: 90%;
+    }
+  }
+  
+  @media (max-width: 888px) {
+    .phone-image {
+      width: 80% !important; 
+      margin-left:-180px !important; 
+      text-align: center;
+      margin-top: -300px;
+    }
+  
+    .second-image {
+      width: 60% !important; 
+      margin-left: 20 !important;
+      margin-top: -30px !important;
+      text-align: center;
+    }
+  
+    .text-block {
+      text-align: center !important; 
+      margin-top: -200px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .phone-image {
+      width: 50% !important;
+      margin-top:2px ;
+      margin-left: 35px !important;
+
+    }
+ 
+  
+    .second-image {
+      width: 60% !important;
+      margin: 0 auto !important;
+      margin-top: 0px !important;
+    }
+  
+    .text-block {
+      font-size: 14px !important;
+      margin-top: 0px;
+    }
+  
+    .login-container {
+      padding: 20px !important;
+    }
   }
   

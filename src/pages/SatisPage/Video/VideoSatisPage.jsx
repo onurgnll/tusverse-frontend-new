@@ -16,9 +16,18 @@ const VideoSatis = () => {
     navigate(`/videoizleme`); // Redirect to video detail page
   };
 
+  // Function to handle dropdown click (to prevent navigation)
+  const handleDropdownClick = (e) => {
+    e.stopPropagation(); // Prevent card click handler from firing
+  };
+
+  // Function to handle button click (to prevent navigation)
+  const handleButtonClick = (e) => {
+    e.stopPropagation(); // Prevent card click handler from firing
+  };
+
   return (
     <>
-      <Header />
       <Row className="mb-3">
         <Col className="text-center-title">
           <h3>Videolar</h3>
@@ -76,7 +85,7 @@ const VideoSatis = () => {
 
                 <Card.Footer className="text-center">
                   {/* Dropdown Button for "Konu Anlatımı" */}
-                  <Dropdown>
+                  <Dropdown onClick={handleDropdownClick}>
                     <Dropdown.Toggle
                       variant="secondary"
                       className="dropdown-toggle"
@@ -91,7 +100,11 @@ const VideoSatis = () => {
                     </Dropdown.Menu>
                   </Dropdown>
 
-                  <Button variant="success" className="cart-button">
+                  <Button
+                    variant="success"
+                    className="cart-button"
+                    onClick={handleButtonClick} // Prevent card click
+                  >
                     <span>50₺</span>
                   </Button>
                 </Card.Footer>
@@ -99,7 +112,7 @@ const VideoSatis = () => {
             </Col>
           ))}
       </Row>
-      <Footer />
+      
     </>
   );
 };

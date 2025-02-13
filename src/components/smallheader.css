@@ -1,0 +1,79 @@
+.smallheader {
+    position: absolute;
+    top: -220px; /* Masaüstünde yukarıda */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+  }
+  
+  .smallheader-logo {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  /* Tablet için */
+  @media (max-width: 1024px) {
+    .smallheader {
+      top: -590px; 
+      left: 120px;
+    }
+  
+    .smallheader-logo {
+      max-width: 500px;
+    }
+  }
+  
+  /* Küçük telefonlar için */
+  @media (max-width: 888px) {
+    .smallheader {
+      top: -150px;
+      left: 390px;
+      
+
+    }
+  
+    .smallheader-logo {
+      max-width: 200px;
+    }
+  }
+    /* Küçük telefonlar için */
+    @media (max-width: 768px) {
+      .smallheader {
+        top: -150px;
+        left: 350px;
+        
+  
+      }
+    
+      .smallheader-logo {
+        max-width: 200px;
+      }
+    }
+  
+  /* Daha küçük telefonlar için */
+  @media (max-width: 480px) {
+    .smallheader {
+      top: -60px;
+      right: -200px;
+       /* En küçük cihazlarda biraz daha aşağı */
+    }
+  
+    .smallheader-logo {
+      max-width: 140px;
+    }
+  }
+  
+  @media (max-width: 420px) {
+    .smallheader {
+      top: -70px;
+      left: 270px;
+      padding: 10px;
+      
+       
+    }
+  
+    .smallheader-logo {
+      max-width: 120px;
+    }
+  }
+  

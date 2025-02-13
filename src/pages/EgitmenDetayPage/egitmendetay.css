@@ -1,159 +1,27 @@
-/* General Styles */
-.profile-section {
-    margin-bottom: 50px;
-}
-
-.profile-image {
-    max-width: 400px;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.book-card {
-    max-width: 300px;
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-}
-
-.book-card .card-header,
-.book-card .card-footer {
-    border: none;
-    background: transparent;
-}
-
-.book-card .card-body {
-    padding: 20px;
-}
-
-.book-card .book-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.book-card .icon-row {
-    margin-bottom: 10px;
-}
-
-.book-card .cart-button {
-    background-color: #00C7D5; /* Green button */
-    border: none;
-    color: #fff;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 250px;
-}
-
-.book-card .cart-button:hover {
-    background-color: #a6abd5; /* Slightly darker green on hover */
-}
-
-.book-title {
-    background-color: #f8f9fa;
-    padding: 10px;
-    font-size: 1.2rem;
-}
-
-.book-image {
-    height: 200px;
-    object-fit: contain;
-    padding: 15px;
-}
-
-.icon-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.custom-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-}
-
-.icon-row span {
-    font-size: 14px;
-    color: #555;
-}
-
-.cart-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 250px;
-    background-color: "#00C7D5";
-}
-
-.cart-button .icon {
-    margin-right: 25px;
-}
-
-.cart-button span {
-    font-weight: bold;
-}
-
-/* Dropdown Styling */
-.dropdown {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5px;
-    margin-bottom: 10px; /* Add space between the cart button and dropdown */
-}
-
-.dropdown-toggle {
-    background-color: #00C7D5 !important; /* Same background color as cart button */
-    border: none !important;
-    color: #fff;
-    font-weight: bold !important;
-    width: 250px; /* Same width as cart button */
-    margin-bottom: 0; /* Ensure no extra margin is applied */
-}
-
-.dropdown-toggle:hover {
-    background-color: #00C7D5; /* Same hover effect as cart button */
-}
-
-.dropdown-menu {
-    width: 100%;
-    background-color: #2e5175;
-    border: none;
-    padding: 0;
-}
-
-.dropdown-item {
-    padding: 10px 20px;
-}
-
-.dropdown-item:hover {
-    background-color: #e9ecef;
-}
-
-/* Align dropdown and cart button */
-.card-footer {
+.profile-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 10px; /* Add some gap between cart button and dropdown */
-}
-.social-media-section h5 {
-    font-size: 18px;
-    font-weight: bold;
+    text-align: center;
+  }
+  
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
-    
   }
   
-  .social-media-section a {
-    text-decoration: none;
-    transition: transform 0.3s ease;
+  .profile-image {
+    width: 200px; /* Resim boyutunu ayarlayabilirsiniz */
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 15px;
   }
   
-  .social-media-section a:hover {
-    transform: scale(1.1);
+  .biography-section {
+    max-width: 700px;
+    text-align: center;
+    margin-bottom: 30px;
   }
   

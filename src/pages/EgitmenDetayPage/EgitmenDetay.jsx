@@ -1,28 +1,29 @@
 import React from "react";
-import { Container,Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import BookSection from "../../components/BookSection";
 import VideoSection from "../../components/VideoSection";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
-import "./egitmendetay.css";
+import "./egitmendetay.css"; // CSS dosyanızı eklediğinizden emin olun.
 
 const EgitmenDetay = () => {
   return (
     <>
       <Header />
       <Container className="profile-container">
-        {/* Profile Section */}
-        <div className="text-center profile-section">
+
+        {/* Profil Resmi ve Başlık */}
+        <div className="profile-section">
           <img
             src="src/assets/images/doktor2.png"
             alt="Profile"
             className="profile-image"
           />
-          <h1 className="profile-title">Doç Dr. Emrullah Beyazyıldız</h1>
+          <h2 className="profile-title">Doç. Dr. Emrullah Beyazyıldız</h2>
         </div>
 
-        {/* Biography Section */}
+        {/* Özgeçmiş Bölümü */}
         <div className="biography-section">
           <h3>Özgeçmiş</h3>
           <p>
@@ -34,29 +35,40 @@ const EgitmenDetay = () => {
           </p>
         </div>
 
-        {/* Book Section */}
+       
         <BookSection />
-
-        {/* Video Section */}
         <VideoSection />
 
-       {/* Sosyal Medya Bölümü */}
-       <Row className="social-media-section mt-5">
-          <Col className="text-center">
-            <h5>Sosyal Medyada Emrullah Beyazyıldız</h5>
-            <div className="d-flex justify-content-center mt-3">
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="mx-2">
-                <FaFacebook size={40} color="#3b5998" />
-              </a>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="mx-2">
-                <FaInstagram size={40} color="#E1306C" />
-              </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="mx-2">
-                <FaYoutube size={40} color="#FF0000" />
-              </a>
-            </div>
-          </Col>
-        </Row>
+        {/* Sosyal Medya Bağlantıları */}
+        <div className="social-media-section mt-5">
+          <h5>Sosyal Medyada Emrullah Beyazyıldız</h5>
+          <div className="d-flex justify-content-center mt-3">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-3"
+            >
+              <FaFacebook size={40} color="#3b5998" />
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-3"
+            >
+              <FaInstagram size={40} color="#E1306C" />
+            </a>
+            <a
+              href="https://www.youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-3"
+            >
+              <FaYoutube size={40} color="#FF0000" />
+            </a>
+          </div>
+        </div>
       </Container>
       <Footer />
     </>

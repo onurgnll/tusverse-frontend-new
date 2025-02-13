@@ -1,0 +1,18 @@
+
+ 
+  
+  
+  @media (max-width: 768px) {
+    .logo-container {
+      top: 0;
+    }
+  
+    .form-container {
+      margin-top: 40px; 
+    }
+  
+    .right-content {
+      display: none; 
+    }
+  }
+  

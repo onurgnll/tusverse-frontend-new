@@ -1,13 +1,23 @@
-/* Footer Genel */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
 .footer {
   background: url("src/assets/images/footer.png") no-repeat center center;
   background-size: cover;
-  width: 100%;
+  min-height: 450px;
   position: relative;
-  padding: 20px 10px;
+  padding: 40px 10px;
+  margin-top: auto;
 }
 
-/* Logo */
 .footer-logo-container {
   position: relative;
   width: 100%;
@@ -20,19 +30,16 @@
   object-fit: contain;
 }
 
-/* Sağ Bölüm İçerik */
 .footer-right-content {
   text-align: center;
   margin-top: 10px;
 }
 
-/* Store Icons */
 .store-icon {
   width: 120px;
   margin-bottom: 10px;
 }
 
-/* Contact Item Styling */
 .contact-item {
   display: flex;
   align-items: center;
@@ -45,7 +52,6 @@
   height: 24px;
 }
 
-/* Ödeme Yöntemleri */
 .payment-image {
   width: 100%;
   max-width: 400px;
@@ -53,7 +59,6 @@
   display: block;
 }
 
-/* Sosyal Medya İkonları */
 .social-icons {
   display: flex;
   justify-content: start;
@@ -64,7 +69,6 @@
   height: 30px;
 }
 
-/* Responsive Tasarım */
 @media (max-width: 1024px) {
   .footer-logo {
     width: 200px;
@@ -83,6 +87,7 @@
   .footer {
     padding: 20px 5px;
     text-align: center;
+    min-height: 500px;
   }
 
   .row {
@@ -94,7 +99,7 @@
   .col-md-4 {
     width: 100%;
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
 
   .footer-logo {
@@ -108,6 +113,29 @@
 
   .payment-image {
     max-width: 250px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 15px 5px;
+    min-height: 550px;
+  }
+
+  .footer-logo {
+    width: 130px;
+  }
+
+  .store-icon {
+    width: 80px;
+  }
+
+  .payment-image {
+    max-width: 200px;
   }
 
   .social-icons {

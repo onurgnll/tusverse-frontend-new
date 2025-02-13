@@ -1,22 +1,66 @@
-/* videosatis.css */
-.video-satis-section {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-  }
-  
-  .video-satis-section .book-title {
-    font-size: 1.5rem;
-    color: #333;
-  }
-  
-  .video-satis-section .cart-button {
-    background-color: #ff5722;
-    border-color: #ff5722;
-  }
-  
-  .video-satis-section .cart-button:hover {
-    background-color: #e64a19;
-  }
-  
+.video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.book-card {
+  max-width: 300px; /* Kartların boyutunu küçülttük */
+  border: 2px solid #00C7D5;
+  border-radius: 8px;
+  box-shadow: none;
+  text-align: center;
+  padding: 10px;
+  margin: 5px;
+  background: none;
+}
+
+.book-title {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px;
+  background: none !important;
+}
+
+.book-image {
+  width: 100%;
+  height: auto;
+  padding: 5px;
+}
+
+.icon-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.custom-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  font-size: 14px;
+  padding: 6px;
+  background-color: #00C7D5 !important;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 5px;
+}
+
+.cart-button {
+  width: 100%;
+  font-size: 14px;
+  padding: 8px;
+  background-color: #00C7D5 !important;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}

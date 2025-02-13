@@ -1,39 +1,267 @@
-/* For the labels */
-/* For the labels */
+/* 📌 Genel Stiller */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.register-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+/* Updated styling for the logo */
+.logo-container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+}
+
+
+/* 📌 Form Elemanları */
 .MuiFormLabel-root {
-    font-weight: bold; /* Make labels bold */
-   
+  font-weight: bold;
+}
+
+.MuiOutlinedInput-root {
+  border-radius: 12px;
+}
+
+.MuiButton-root {
+  border-radius: 12px;
+  color: #00C7D5;
+}
+
+/* 📌 Buton Stilleri */
+.btn-custom {
+  background-color: #00C7D5;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.btn-custom:hover {
+  background-color: #009aa5;
+}
+
+/* 📌 Label ve Metin Renkleri */
+.mobile-app-text {
+  color: #00C7D5;
+}
+
+.default-text {
+  color: black;
+}
+
+/* 📌 Login Buton Konumu */
+.login-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* 📌 Logo */
+.logo {
+  width: 250px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* 📌 Görsellerin Konumlandırılması */
+.right-content {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 📌 Resim Stilleri */
+.side-image {
+  width: 300px;
+  height: auto;
+  max-width: 100%;
+}
+
+.phone-image {
+  position: absolute;
+  top: -180px;
+  left: 25%;
+  transform: translateX(-50%);
+  z-index: 10;
+  max-width: 300px;
+}
+
+.process-image {
+  position: absolute;
+  top: 40px;
+  left: 70%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* 📌 Metin Kutusu */
+.text-box {
+  position: absolute;
+  top: -120px;
+  left: 55%;
+  transform: translateX(-50%);
+  z-index: 10;
+  max-width: 80%;
+}
+
+/* 📌 RESPONSIVE MEDIA QUERIES */
+
+/* Küçük Ekranlar (Mobil) */
+@media (max-width: 1030px) {
+  .register-box {
+    margin-top: 20px !important;
   }
-  
-  /* For TextField components */
-  .MuiOutlinedInput-root {
-    border-radius: 12px; /* Apply border radius to the input fields */
+
+  .btn-custom {
+    font-size: 16px;
+    padding: 8px;
+    
+  }
+
+  .image-container {
+    position: relative;
+  }
+
  
+  .text-box {
+    margin-top: -300px;
+    margin-left: 200px;
+    position: static;
+    transform: none;
+    text-align: center;
+    width: 50%;
   }
-  
-  /* For the login button */
-  .MuiButton-root {
-    border-radius: 12px; /* Apply border radius to the button */
-    color: #00C7D5;
+  .phone-image{
+    margin-top: -350px;
+    max-width: 300px;
+    margin-left: -40px !important;
   }
-  
-  /* Adjust the login button to be 20% from the left */
-  .login-button-container {
-    display: flex;
-    justify-content: flex-start;
+
+  .side-image {
+    width: 300px;
+    margin-left: -150px ;
+    top: 0px;
+    
+  }
+}
+
+/* Küçük Ekranlar (Mobil) */
+@media (max-width: 830px) {
+  .register-box {
+    padding: 15px;
+  }
+
+  .btn-custom {
+    font-size: 16px;
+    padding: 8px;
+    
+  }
+
+  .image-container {
+    position: relative;
+  }
+
+ 
+  .text-box {
+    margin-top: -400px;
+    margin-left: 250px;
+    position: static;
+    transform: none;
+    text-align: center;
+    width: 50%;
+  }
+  .phone-image{
+    margin-top: -300px;
+    margin-left: 5px !important;
+  }
+
+  .side-image {
+    width: 200px;
+    margin-left: -40px ;
+    top: -100px;
+    
+  }
+}
+/* burayı düşün*/
+@media (max-width: 468px) {
+  .register-box {
+    padding: 15px;
+  }
+
+  .btn-custom {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .image-container {
+    position: relative;
+  }
+
+ 
+  .text-box {
+    margin-top: -110px;
+    position: static;
+    transform: none;
+    text-align: center;
     width: 100%;
-    margin-left: 40%; /* Position the button 20% from the left */
+  }
+  .phone-image{
+    margin-top: -150px;
+  }
+
+  .side-image {
+    width: 200px;
+    margin-left: -70px ;
     
   }
   
+}
 
-  /* Tusverse mobil uygulaması yazısını mavi yap */
-  .mobile-app-text {
-    color: #00C7D5;
+
+/* For screens smaller than 480px */
+@media (max-width: 480px) {
+  /* Hide the logo */
+  .logo-container {
+    display: none;
+  }
+
+  /* Hide the images */
+  .right-content {
+    display: none;
   }
   
-  /* Diğer tüm yazılar için varsayılan siyah renk */
-  .default-text {
-    color: black;
+  /* Make sure the form is displayed */
+  .register-form {
+    display: block;
   }
-  
+}
