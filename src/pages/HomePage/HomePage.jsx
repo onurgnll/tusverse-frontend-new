@@ -169,7 +169,7 @@ const Homepage = () => {
       <Container fluid className="p-4">
   {/* Orta Kısım */}
   <Row className="mb-5">
-  <Col md={4} className="text-left">
+  <Col md={4} className="text-left ">
     <h3 className="text-dark">Tusverse</h3>
     <p>Uzmanlar tarafından hazırlanmış</p>
 
@@ -197,9 +197,9 @@ const Homepage = () => {
     </div>
   </Col>
 
-  <Col md={8} className="d-flex align-items-center">
+  <Col md={8} className="d-flex align-items-center ">
     <Row className="w-100">
-      <Col md={6} className="mb-3">
+      <Col md={6} className="mb-3 ">
         <img
           src="src/assets/images/img.jpg"
           alt="Feature 1"
@@ -287,25 +287,19 @@ const Homepage = () => {
           &lt;
         </button>
 
-        <Row className="flex-grow-1 mx-2 justify-content-center align-items-stretch">
-  {/* Küçük ekranda sadece 1 kart göster */}
-  <Col xs={12} md={6} key={currentIndex} className="product-card d-flex">
-    <div className="card2 mb-4 d-flex flex-row w-100">
+        <Row className="flex-grow-1 mx-2 justify-content-center align-items-center">
+  {/* Küçük ekranda sadece 1 kart göster ve ortala */}
+  <Col xs={12} md={6} key={currentIndex} className="d-flex justify-content-center">
+    <div className="card2">
       <img
         src={products[currentIndex].image}
         className="card2-img-left"
         alt={products[currentIndex].title}
-        style={{
-          width: "150px",
-          height: "auto",
-          objectFit: "cover",
-          borderRadius: "8px",
-        }}
       />
-      <div className="card2-body d-flex flex-column justify-content-between">
+      <div className="card2-body">
         <h5 className="card2-title">{products[currentIndex].title}</h5>
         <p className="card2-text">{products[currentIndex].description}</p>
-        <Button variant="primary" className="d-flex align-items-center mt-auto">
+        <Button variant="primary" className="mt-auto">
           {products[currentIndex].price}
           <ShoppingCartIcon style={{ marginLeft: "8px" }} />
         </Button>
@@ -313,24 +307,18 @@ const Homepage = () => {
     </div>
   </Col>
 
-  {/* Büyük ekranda ikinci kartı göster */}
-  <Col xs={12} md={6} className="d-none d-md-flex product-card">
-    <div className="card2 mb-4 d-flex flex-row w-100">
+  {/* Büyük ekranda ikinci kartı göster ve ortala */}
+  <Col xs={12} md={6} className="d-none d-lg-flex justify-content-center">
+    <div className="card2">
       <img
         src={products[(currentIndex + 1) % products.length].image}
         className="card2-img-left"
         alt={products[(currentIndex + 1) % products.length].title}
-        style={{
-          width: "150px",
-          height: "auto",
-          objectFit: "cover",
-          borderRadius: "8px",
-        }}
       />
-      <div className="card2-body d-flex flex-column justify-content-between">
+      <div className="card2-body">
         <h5 className="card2-title">{products[(currentIndex + 1) % products.length].title}</h5>
         <p className="card2-text">{products[(currentIndex + 1) % products.length].description}</p>
-        <Button variant="primary" className="d-flex align-items-center mt-auto">
+        <Button variant="primary" className="mt-auto">
           {products[(currentIndex + 1) % products.length].price}
           <ShoppingCartIcon style={{ marginLeft: "8px" }} />
         </Button>
@@ -338,6 +326,7 @@ const Homepage = () => {
     </div>
   </Col>
 </Row>
+
 
 
         {/* Sağ Ok */}
