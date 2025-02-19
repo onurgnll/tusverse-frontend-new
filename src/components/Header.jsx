@@ -47,7 +47,14 @@ const Header = () => {
   return (
     <>
       <div className="header-container">
-        <img  className="logo" src="src/assets/images/siyah_logo.png" alt="Logo" />
+      <img
+  className="logo"
+  src="src/assets/images/siyah_logo.png"
+  alt="Logo"
+  onClick={() => handleNavigation("/")}
+  style={{ cursor: "pointer" }} // Add cursor pointer for better UX
+/>
+
 
         <div className="button-container d-none d-md-flex">
           <Box className="button-row">

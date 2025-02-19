@@ -13,7 +13,12 @@ import DenemeSınavı from "./pages/DenemeSınavı/DenemeSınavı"
 import RegisterForm from "./pages/RegisterPage/RegisterForm";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Profilim from "./pages/Profil/Profilim";
+import VideoPaketlerim from "./pages/Profil/VideoPaketlerim";
+import Kitaplarım from "./pages/Profil/Kitaplarım";
+import Denemelerim from "./pages/Profil/Denemelerim";
 import FaqSection from "./components/FaqSections";
+
 import "./App.css"
 
 const App = () => {
@@ -29,7 +34,7 @@ const App = () => {
           <Route path="/kayit" element={<RegisterPage />} />
           <Route path="/kayitform" element={<RegisterForm />} />
           <Route path="/" element={<HomePage />} />
-          
+          <Route path="/profilim" element={<Profilim />} />
           <Route path="/egitmenler" element={<EgitmenlerPage />} />
           <Route path="/egitmendetay" element={<EgitmenDetay />} />
           <Route path="/videosatis" element={<VideoSatis />} />
@@ -37,6 +42,9 @@ const App = () => {
           <Route path="/denemeler" element={<Denemeler />} />
           <Route path="/videoizleme" element={<VideoIzleme />} />
           <Route path="/denemesınavı" element={<DenemeSınavı />} />
+          <Route path="/videopaketlerim" element={<VideoPaketlerim />} />
+          <Route path="/kitaplarım" element={<Kitaplarım />} />
+          <Route path="/denemelerim" element={<Denemelerim />} />
           
   
           

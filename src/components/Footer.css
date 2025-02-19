@@ -12,9 +12,10 @@ html, body {
 .footer {
   background: url("src/assets/images/footer.png") no-repeat center center;
   background-size: cover;
-  min-height: 450px;
+  
+  max-height: 300px !important;
   position: relative;
-  padding: 40px 10px;
+  padding: 40px 0px;
   margin-top: auto;
 }
 
@@ -26,13 +27,14 @@ html, body {
 
 .footer-logo {
   width: 250px;
-  max-height: 150px;
+  max-height: 400px;
   object-fit: contain;
+  margin-top: -100px;
 }
 
 .footer-right-content {
   text-align: center;
-  margin-top: 10px;
+  margin-top: -50px;
 }
 
 .store-icon {
@@ -43,8 +45,8 @@ html, body {
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 0px;
+  margin-bottom: 0px;
 }
 
 .contact-icon {
@@ -54,8 +56,8 @@ html, body {
 
 .payment-image {
   width: 100%;
-  max-width: 400px;
-  margin: 20px auto 0;
+  max-width: 200px;
+  margin: 0px ;
   display: block;
 }
 
@@ -122,20 +124,26 @@ html, body {
 
 @media (max-width: 480px) {
   .footer {
-    padding: 15px 5px;
-    min-height: 550px;
+    padding: 0px 0px;
+    min-height: 500px;
+    width: 100%;
   }
 
   .footer-logo {
-    width: 130px;
+    width: 100px;
+    margin-top: -30px;
   }
 
   .store-icon {
-    width: 80px;
+    margin-top: 0px;
+    width: 70px;
   }
 
   .payment-image {
-    max-width: 200px;
+    max-width: 300px;
+  }
+  .footer-right-content{
+    margin-top: -80px;
   }
 
   .social-icons {

@@ -131,10 +131,14 @@
 }
 
 /* Ekran 768px ve altındayken geçerli olacak stiller */
-@media (max-width: 768px) {
+@media (max-width: 468px) {
   .header-container {
     flex-direction: column; /* Dikey hizalama */
     align-items: center;
+    margin-left: 0px;
+    align-items: center;
+    height: 250px;
+    width: auto !important;
   }
 
   .logo {
@@ -152,6 +156,7 @@
     width: 50%;
     margin: 0 auto;
   }
+ 
   .button-container {
     display: none !important; /* Butonları gizle */
   }
@@ -159,12 +164,7 @@
 
 
 
-@media (max-width: 468px) {
-  .header-container {
-    margin-left: 0px;
-    align-items: center;
-  }
-}
+
 
 
 
