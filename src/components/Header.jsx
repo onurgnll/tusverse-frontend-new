@@ -47,7 +47,14 @@ const Header = () => {
   return (
     <>
       <div className="header-container">
-        <img  className="logo" src="src/assets/images/siyah_logo.png" alt="Logo" />
+      <img
+  className="logo"
+  src="src/assets/images/siyah_logo.png"
+  alt="Logo"
+  onClick={() => handleNavigation("/")}
+  style={{ cursor: "pointer" }} // Add cursor pointer for better UX
+/>
+
 
         <div className="button-container d-none d-md-flex">
           <Box className="button-row">
@@ -67,22 +74,23 @@ const Header = () => {
           </Box>
         </div>
         
-        {/* Mobile Dropdown */}
-        <div className="d-md-none mobile-menu">
-          <Dropdown show={showDropdown} onToggle={() => setShowDropdown(!showDropdown)}>
-            <Dropdown.Toggle className="custom-button green">Menü</Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item onClick={() => handleNavigation("/giris")}>Giriş Yap</Dropdown.Item>
-              <Dropdown.Item onClick={() => handleNavigation("/")}>Sepetim</Dropdown.Item>
-              <Dropdown.Divider />
-              {routes.map((item, index) => (
-                <Dropdown.Item key={index} onClick={() => handleNavigation(item.path)}>
-                  {item.icon} {item.text}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
+       {/* Mobil Dropdown */}
+  <div className="d-md-none d-lg-none mobile-menu">
+    <Dropdown show={showDropdown} onToggle={() => setShowDropdown(!showDropdown)}>
+      <Dropdown.Toggle className="custom-button green">Menü</Dropdown.Toggle>
+      <Dropdown.Menu>
+        <Dropdown.Item onClick={() => handleNavigation("/giris")}>Giriş Yap</Dropdown.Item>
+        <Dropdown.Item onClick={() => handleNavigation("/")}>Sepetim</Dropdown.Item>
+        <Dropdown.Divider />
+        {routes.map((item, index) => (
+          <Dropdown.Item key={index} onClick={() => handleNavigation(item.path)}>
+            {item.icon} {item.text}
+          </Dropdown.Item>
+        ))}
+      </Dropdown.Menu>
+    </Dropdown>
+  </div>
+
       </div>
     </>
   );

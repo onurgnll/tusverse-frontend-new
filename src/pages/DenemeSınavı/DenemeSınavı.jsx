@@ -7,13 +7,21 @@ import {
   Button,
   Radio,
   RadioGroup,
-  FormControlLabel
+  FormControlLabel,
+  useMediaQuery,
+  useTheme,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  IconButton,
 } from "@mui/material";
 import orbitaImage from "../../assets/images/orbita.jpg";
+import { Menu as MenuIcon } from "@mui/icons-material";
+import "./denemesınavı.css";
 
 const ExamPage = () => {
-  const fileContent = `
-Soru: Trafik kazası sonucu orbitanın medial duvarında kırık olduğunu nasıl anlarız ?
+  const fileContent = `Soru: Trafik kazası sonucu orbitanın medial duvarında kırık olduğunu nasıl anlarız ?
 Crista lacrimalis anterior
 Lamina perpendicularis (os ethmoidale)
 Processus frontalis (Maxill)
@@ -29,19 +37,21 @@ Soru: Aşağıdaki hangi kemik kafatasının parçasıdır...
 Os frontale
 Os temporale
 Os sphenoidale
-Os nasale
-  `;
+Os nasale`;
 
   const [questions, setQuestions] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const questionsPerPage = 5;
   const [answers, setAnswers] = useState({});
+  const [openDialog, setOpenDialog] = useState(false); 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const parseQuestions = (fileContent) => {
     const lines = fileContent.split("\n");
     const extractedQuestions = [];
     let currentQuestion = null;
-    
+
     lines.forEach((line) => {
       if (line.startsWith("Soru:")) {
         if (currentQuestion) {
@@ -60,7 +70,7 @@ Os nasale
     while (extractedQuestions.length < 20) {
       extractedQuestions.push({
         question: `Örnek Soru ${extractedQuestions.length + 1}`,
-        options: ["Şık A", "Şık B", "Şık C", "Şık D"]
+        options: ["Şık A", "Şık B", "Şık C", "Şık D"],
       });
     }
 
@@ -69,18 +79,15 @@ Os nasale
 
   useEffect(() => {
     parseQuestions(fileContent);
-
-    // Sayfa yüklendiğinde tam ekran aç
-    const enterFullScreen = () => {
-      if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-      }
-    };
-    enterFullScreen();
   }, []);
 
   const handleAnswerChange = (questionIndex, selectedOption) => {
-    setAnswers((prev) => ({ ...prev, [questionIndex]: selectedOption }));
+    setAnswers((prev) => {
+      if (prev[questionIndex] === selectedOption) {
+        return { ...prev, [questionIndex]: null };
+      }
+      return { ...prev, [questionIndex]: selectedOption };
+    });
   };
 
   const handlePageChange = (newPage) => {
@@ -89,15 +96,25 @@ Os nasale
     }
   };
 
-  const currentQuestions = questions.slice(
-    (currentPage - 1) * questionsPerPage,
-    currentPage * questionsPerPage
-  );
+  const currentQuestions = isMobile
+    ? questions.slice(0, currentPage * questionsPerPage)
+    : questions.slice(
+        (currentPage - 1) * questionsPerPage,
+        currentPage * questionsPerPage
+      );
+
+  const handleMenuClick = () => {
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
   return (
-    <Box sx={{ p: 4, backgroundColor: "#f8f9fa", minHeight: "100vh", width: "100vw" }}>
+    <Box sx={{ p: 4, backgroundColor: "#f8f9fa", minHeight: "100vh", width: "100vw" }} className="exam-page-start">
       <Grid container spacing={3}>
-        <Grid item xs={8}>
+        <Grid item xs={isMobile ? 12 : 8}>
           <Card sx={{ p: 3 }}>
             <Typography variant="h6" fontWeight="bold" mb={2}>
               TUSVERSE Deneme Sınavı
@@ -135,6 +152,8 @@ Os nasale
                 variant="outlined"
                 color="primary"
                 onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="page-navigation-button"
               >
                 Önceki Sayfa
               </Button>
@@ -143,6 +162,8 @@ Os nasale
                 variant="outlined"
                 color="primary"
                 onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === Math.ceil(questions.length / questionsPerPage)}
+                className="page-navigation-button"
               >
                 Sonraki Sayfa
               </Button>
@@ -150,13 +171,17 @@ Os nasale
           </Card>
         </Grid>
 
-        <Grid item xs={4}>
-          <Card sx={{
+        {!isMobile && (
+          <Grid item xs={12} sm={4} className="exam-page-right-grid">
+          <Card
+            sx={{
               p: 3,
               position: "sticky",
-              top: 100, 
+              top: 100,
               transition: "top 0.3s ease-in-out",
-            }}>
+              height: 'auto', 
+            }}
+          >
             <Typography
               variant="h6"
               fontWeight="bold"
@@ -166,28 +191,31 @@ Os nasale
             >
               2 Saat 16 Dakika 43 Saniye Kaldı
             </Typography>
-            <Grid container spacing={1}>
+            
+           
+            <div className="question-buttons-container">
               {[...Array(questions.length)].map((_, idx) => (
-                <Grid item xs={2} key={idx}>
-                  <Button
-                    variant="contained"
-                    sx={{
-                      backgroundColor: answers[idx] ? "#4caf50" : "#ddd",
-                      color: answers[idx] ? "#fff" : "#000",
-                    }}
-                    fullWidth
-                  >
-                    {idx + 1}
-                  </Button>
-                </Grid>
+                <Button
+                  key={idx}
+                  variant="contained"
+                  sx={{
+                    backgroundColor: answers[idx] ? "#4caf50" : "#ddd",
+                    color: answers[idx] ? "#fff" : "#000",
+                  }}
+                  className="question-button"
+                >
+                  {idx + 1}
+                </Button>
               ))}
-            </Grid>
-            <Box mt={4} display="flex" justifyContent="space-between">
+            </div>
+        
+            <Box mt={4} className="page-navigation-container" >
               <Button
                 variant="outlined"
                 color="primary"
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
+                className="page-navigation-button"
               >
                 Önceki Sayfa
               </Button>
@@ -199,13 +227,72 @@ Os nasale
                 color="primary"
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === Math.ceil(questions.length / questionsPerPage)}
+                className="page-navigation-button"
               >
                 Sonraki Sayfa
               </Button>
             </Box>
           </Card>
         </Grid>
+        
+        
+        )}
       </Grid>
+
+      {isMobile && (
+       <Box
+       sx={{
+         position: "fixed",
+         bottom: 10,
+         right: 20,
+         zIndex: 1000,
+         backgroundColor: "#4caf50",
+         borderRadius: "50%",
+         p: 2,
+       }}
+       className="floating-menu-button"
+     >
+       <IconButton color="white" onClick={handleMenuClick}>
+         <MenuIcon />
+       </IconButton>
+     </Box>
+     
+      )}
+<Dialog open={openDialog} onClose={handleCloseDialog} fullWidth maxWidth="sm" className="dialog-container">
+  <DialogTitle className="dialog-title">İçerik</DialogTitle>
+  <DialogContent className="dialog-content">
+    <Typography variant="h6" fontWeight="bold">
+      2 Saat 16 Dakika 43 Saniye Kaldı
+    </Typography>
+    <Grid container spacing={1} justifyContent="center" alignItems="center">
+      {[...Array(questions.length)].map((_, idx) => (
+        <Grid item xs={2} sm={2} md={1} key={idx} className="question-button">
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: answers[idx] ? "#4caf50" : "#ddd",
+              color: answers[idx] ? "#fff" : "#000",
+              fontSize: '0.8rem', 
+              padding: '6px', 
+              width: '40px', 
+              height: '40px', 
+              minWidth: '40px', 
+            }}
+          >
+            {idx + 1}
+          </Button>
+        </Grid>
+      ))}
+    </Grid>
+  </DialogContent>
+  <DialogActions className="dialog-actions">
+    <Button onClick={handleCloseDialog} color="primary" className="dialog-button">
+      Kapat
+    </Button>
+  </DialogActions>
+</Dialog>
+
+
     </Box>
   );
 };

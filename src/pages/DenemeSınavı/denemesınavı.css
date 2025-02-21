@@ -1,0 +1,83 @@
+.question-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+  justify-content: center; 
+}
+
+.question-button {
+  width: 40px; 
+  margin-bottom: 10px; 
+}
+
+.page-navigation-container {
+  display: flex;
+  justify-content: space-between; 
+  gap: 10px; 
+  align-items: center; 
+}
+
+.page-navigation-button {
+  flex: 1; 
+}
+
+
+
+
+@media (max-width: 468px) {
+    .page-navigation-button {
+      font-size: 12px;
+      padding: 4px 8px; 
+      width: 10%;
+    }
+
+  
+  .exam-page-start {
+    position: relative;
+    top: 10px; 
+  }
+  .floating-menu-button {
+    bottom: 50px;
+    
+    padding: 5px;
+    margin-right: 20px;
+  }
+
+  .dialog-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+
+}
+
+
+
+
+
+  
+  /* 480px ile 1024px arasındaki Ekranlar için */
+  @media (max-width: 1024px) and (min-width: 480px) {
+    .exam-page-right-grid {
+      width: 100%;
+      margin-top: 0px;
+      
+    }
+  
+    .exam-page-right-grid .page-navigation-button {
+      margin-top: 10px;
+      width: 100%; 
+    }
+   
+  .question-buttons-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 8px; 
+  }
+
+  .question-buttons-container .question-button {
+    flex: 1 0 10%; 
+    max-width: 40px; 
+  }
+  }
+  
