@@ -27,7 +27,7 @@ const VideoPage = () => {
                   allowFullScreen
                 ></iframe>
               </div>
-              <h4 className="mb-4">{selectedVideo.title}</h4>
+              <h4 className="mb-4 mt-4">{selectedVideo.title}</h4>
             </div>
           </div>
         </Col>

@@ -20,19 +20,6 @@ body {
   max-width: 500px;
   text-align: center;
 }
-/* Updated styling for the logo */
-.logo-container {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.logo {
-  width: 300px;
-  height: auto;
-}
-
 
 /* 📌 Form Elemanları */
 .MuiFormLabel-root {

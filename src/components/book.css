@@ -54,26 +54,26 @@
   border-radius: 5px;
 }
 
-  /* Media query for centering the cards below the heading */
+  
   @media (max-width: 768px) {
-    /* Center the row containing the cards */
+    
     .d-flex.justify-content-center {
       justify-content: center !important;
     }
   
-    /* Ensure the row with the heading is centered */
+   
     .mb-3.d-flex.justify-content-center {
       justify-content: center;
     }
   
-    /* Center the book cards on smaller screens */
+    
     .book-card {
       width: 100%;
       max-width: 350px;
-      margin: 20px auto; /* Added margin for spacing */
+      margin: 20px auto; 
     }
   
-    /* Ensure the book image scales properly */
+    
     .book-image {
       height: auto;
       max-width: 100%;
@@ -87,18 +87,18 @@
       font-size: 1rem;
     }
   
-    /* Ensure columns inside the row are centered */
+    
     .justify-content-center {
       display: flex;
       justify-content: center;
     }
   
-    /* Ensure that the columns within the row are centered */
+    
     .d-flex.justify-content-center {
       justify-content: center;
     }
   
-    /* For smaller screens, display 2 cards per row */
+   
     .col-md-6 {
       max-width: 50%;
     }

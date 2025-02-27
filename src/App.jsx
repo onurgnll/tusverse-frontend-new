@@ -18,6 +18,7 @@ import VideoPaketlerim from "./pages/Profil/VideoPaketlerim";
 import Kitaplarım from "./pages/Profil/Kitaplarım";
 import Denemelerim from "./pages/Profil/Denemelerim";
 import FaqSection from "./components/FaqSections";
+import Sepetim from "./pages/Profil/Sepetim"
 
 import "./App.css"
 
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/videopaketlerim" element={<VideoPaketlerim />} />
           <Route path="/kitaplarım" element={<Kitaplarım />} />
           <Route path="/denemelerim" element={<Denemelerim />} />
+          <Route path="/sepetim" element={<Sepetim />} />
           
   
           

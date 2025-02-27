@@ -16,7 +16,8 @@ header, footer {
   width: 100%; 
   margin-left: 90px;
   max-width: 500px;
-  height: auto; 
+  height: 300px !important;
+  
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
@@ -534,9 +535,11 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
       max-width: 100%;
   }
 
+
   .gradient-div, .gradient-div1, .gradient-div2 {
       flex-direction: column;
-      padding: 10px 15px;
+      padding: 10px;
+      width: 250px;
   }
 
   .info-box-row {
