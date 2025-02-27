@@ -2,50 +2,74 @@ import React, { useState } from "react";
 import { TextField, Button, Grid, Typography } from "@mui/material";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useNavigate } from "react-router-dom"; // For navigation
-import { Alert } from 'antd'; // Import Ant Design's Alert
+import { useNavigate } from "react-router-dom";
+import { Alert, message } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../../redux/actions/authActions";
 
-const RegisterForm = ({
-  phone,
-  firstName,
-  lastName,
-  email,
-  setFirstName,
-  setLastName,
-  setEmail,
-  tcNumber,
-  setTcNumber,
-  dob,
-  setDob,
-  password,
-  setPassword,
-  handleRegister,
-}) => {
-  const navigate = useNavigate(); // Hook to navigate programmatically
-  const [error, setError] = useState(null); // State to track validation error
+const RegisterForm = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [tcNumber, setTcNumber] = useState("");
+  const [dob, setDob] = useState(null);
+  const [password, setPassword] = useState("");
+  const [formError, setFormError] = useState({});
+
+  // sendMessage function to show messages using Ant Design message
+  
+
+  // Form validation
+  const validateForm = () => {
+    const errors = {};
+    if (!firstName) errors.firstName = "Ad alanı boş olamaz.";
+    if (!lastName) errors.lastName = "Soyad alanı boş olamaz.";
+    if (!email) errors.email = "E-posta alanı boş olamaz.";
+    if (!/\S+@\S+\.\S+/.test(email)) errors.email = "Geçerli bir e-posta adresi girin.";
+    if (!tcNumber || tcNumber.length !== 11) errors.tcNumber = "TC Kimlik No geçerli olmalıdır.";
+    if (!dob) errors.dob = "Doğum tarihi boş olamaz.";
+    if (!password) errors.password = "Şifre alanı boş olamaz.";
+    if (password.length < 6) errors.password = "Şifre en az 6 karakter olmalıdır.";
+
+    setFormError(errors);
+    return Object.keys(errors).length === 0;
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    // Simple validation to check if all fields are filled
-    if (
-      !firstName ||
-      !lastName ||
-      !email ||
-      !tcNumber ||
-      !dob ||
-      !password
-    ) {
-      setError("Lütfen tüm alanları doldurun."); // Error message if fields are empty
-    } else {
-      setError(null); // Clear the error if everything is filled
-      handleRegister(); // Proceed with the register logic
-      navigate("/"); // Redirect to homepage after successful registration
+    
+    if (validateForm()) {
+      const userData = {
+        name: firstName,
+        surname: lastName,
+        email,
+        password,
+        tcNo: tcNumber,
+        birthYear: dob.getFullYear().toString(),
+      };
+
+     
+      const sendMessage = async (messagee, success) => {
+        if (success == 1) {
+            message.success(messagee)
+        } else {
+            message.error(messagee)
+        }
+    }
+
+    
+      dispatch(register({ body: userData, navigate: navigate, sendMessage: sendMessage }))
+        
+        
+      
     }
   };
 
   const handleLogoClick = () => {
-    navigate("/"); // Navigate to homepage when logo is clicked
+    navigate("/");
   };
 
   return (
@@ -62,9 +86,9 @@ const RegisterForm = ({
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 10,
-          cursor: "pointer", // Make it clickable
+          cursor: "pointer",
         }}
-        onClick={handleLogoClick} // Logo click handler
+        onClick={handleLogoClick}
       >
         <img
           src="src/assets/images/siyah_logo.png"
@@ -89,19 +113,10 @@ const RegisterForm = ({
           KAYIT OL
         </Typography>
 
-        {/* Show error alert if any */}
-        {error && (
-          <Alert
-            message="Hata"
-            description={error}
-            type="error"
-            showIcon
-            style={{ width: "100%", marginBottom: "20px" }}
-          />
-        )}
+        
 
         <form
-          onSubmit={handleFormSubmit} // Updated to handle validation
+          onSubmit={handleFormSubmit}
           style={{ width: "100%", maxWidth: "400px" }}
         >
           <TextField
@@ -111,6 +126,8 @@ const RegisterForm = ({
             margin="normal"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
+            error={!!formError.firstName}
+            helperText={formError.firstName}
           />
           <TextField
             label="Soyad"
@@ -119,6 +136,8 @@ const RegisterForm = ({
             margin="normal"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
+            error={!!formError.lastName}
+            helperText={formError.lastName}
           />
           <TextField
             label="E-posta"
@@ -127,6 +146,8 @@ const RegisterForm = ({
             margin="normal"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            error={!!formError.email}
+            helperText={formError.email}
           />
           <TextField
             label="TC Kimlik No"
@@ -136,6 +157,8 @@ const RegisterForm = ({
             value={tcNumber}
             onChange={(e) => setTcNumber(e.target.value)}
             inputProps={{ maxLength: 11 }}
+            error={!!formError.tcNumber}
+            helperText={formError.tcNumber}
           />
           <DatePicker
             selected={dob}
@@ -145,7 +168,13 @@ const RegisterForm = ({
             className="react-datepicker__input"
             wrapperClassName="react-datepicker-wrapper"
             customInput={
-              <TextField variant="outlined" fullWidth margin="normal" />
+              <TextField
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                error={!!formError.dob}
+                helperText={formError.dob}
+              />
             }
           />
           <TextField
@@ -156,6 +185,8 @@ const RegisterForm = ({
             margin="normal"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            error={!!formError.password}
+            helperText={formError.password}
           />
           <Button
             type="submit"
@@ -171,7 +202,6 @@ const RegisterForm = ({
         </form>
       </Grid>
 
-      {/* Right Side: Image & Content */}
       <Grid item xs={12} md={6} className="right-content">
         <div className="image-container">
           <img

@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useEffect, useState }  from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
@@ -10,6 +10,9 @@ import { Carousel } from "antd";
 import "./home.css";
 import EgitmenlerPage from "../EgitmenlerPage/EgitmenlerPage";
 import FaqSection from "../../components/FaqSections";
+import { requestWithoutAuth } from "../../helpers/requests";
+import { useDispatch, useSelector } from "react-redux";
+
 const InfoBox = ({ title, value, icon, color }) => { //deneme sınavı exambox
   return (
     <div className="info-box" style={{ borderColor: color, boxShadow: `0 4px 8px ${color}` }}>
@@ -24,7 +27,9 @@ const InfoBox = ({ title, value, icon, color }) => { //deneme sınavı exambox
   );
 };
 const Homepage = () => {
-   // Static array of instructors
+  
+
+
    const instructors = [ //redux state olarak tut useselectorle seç
     {
       id: 1,

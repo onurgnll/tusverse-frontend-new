@@ -130,12 +130,12 @@ const LoginPage = () => {
 export default LoginPage;
 */ 
 import React, { useState } from "react";
-import { login } from "../../redux/actions/authActions";
-
-import { setLoggedStatus } from "../../redux/features/authSlice";
 import { useDispatch } from "react-redux";
 import { TextField, Button, Typography, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { login } from "../../redux/actions/authActions";
+import { setLoggedStatus } from "../../redux/features/authSlice";
+import { message } from "antd"; // Ant Design'dan message import edildi
 import "./login.css";
 import Smallheader from "../../components/Smallheader";
 
@@ -145,28 +145,67 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLoginSubmit = async (e) => {
+  const validateForm = () => {
+    if (!email || !password) {
+      message.error("E-posta ve şifre alanları boş bırakılamaz.");
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      message.error("Geçerli bir e-posta adresi giriniz.");
+      return false;
+    }
+
+    if (password.length < 6) {
+      message.error("Şifre en az 6 karakter olmalıdır.");
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleLoginSubmit = (e) => {
     e.preventDefault();
-    
-    try {
-      const response = await dispatch(login({ email, password })).unwrap(); // Redux Thunk işlemi
-      if (response.success) {
-        localStorage.setItem("token", response.data.token);
-        dispatch(setLoggedStatus(true));
-        navigate("/");
-      } else {
-        alert("Giriş başarısız. Lütfen bilgilerinizi kontrol edin.");
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+
+    if (validateForm()) {
+      const loginData = {
+        email,
+        password,
+      };
+
+      const sendMessage = async (messagee, success) => {
+        if (success === 1) {
+          message.success(messagee); 
+        } else {
+          message.error(messagee); 
+        }
+      };
+
+      dispatch(
+        login({
+          body: loginData,
+          navigate: navigate,
+          sendMessage: sendMessage,
+        })
+      );
     }
   };
-  
 
   return (
-    <Grid container justifyContent="center" alignItems="center" style={{ minHeight: "100vh", padding: "20px" }} className="login-container">
-      <Grid item xs={12} md={6} className="login-form d-flex flex-column align-items-center p-4 position-relative">
+    <Grid
+      container
+      justifyContent="center"
+      alignItems="center"
+      style={{ minHeight: "100vh", padding: "20px" }}
+      className="login-container"
+    >
+      <Grid
+        item
+        xs={12}
+        md={6}
+        className="login-form d-flex flex-column align-items-center p-4 position-relative"
+      >
         <Smallheader />
         <Typography variant="h4" gutterBottom className="font-weight-bold">
           GİRİŞ YAP
@@ -198,7 +237,12 @@ const LoginPage = () => {
         </form>
 
         <div className="mt-3 d-flex justify-content-center">
-          <Typography variant="body2" className="text-secondary" style={{ cursor: "pointer" }} onClick={() => navigate("/kayit")}>
+          <Typography
+            variant="body2"
+            className="text-secondary"
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/kayit")}
+          >
             Hesabınız yok mu ?
           </Typography>
         </div>
