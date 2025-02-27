@@ -131,13 +131,12 @@ export default LoginPage;
 */ 
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { TextField, Button, Typography, Grid } from "@mui/material";
+import { TextField, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../redux/actions/authActions";
-import { setLoggedStatus } from "../../redux/features/authSlice";
 import { message } from "antd"; // Ant Design'dan message import edildi
-import "./login.css";
 import Smallheader from "../../components/Smallheader";
+import "./login.css";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -193,62 +192,61 @@ const LoginPage = () => {
   };
 
   return (
-    <Grid
-      container
-      justifyContent="center"
-      alignItems="center"
-      style={{ minHeight: "100vh", padding: "20px" }}
-      className="login-container"
+    <div
+      className="container-fluid d-flex justify-content-center align-items-center"
+      
     >
-      <Grid
-        item
-        xs={12}
-        md={6}
-        className="login-form d-flex flex-column align-items-center p-4 position-relative"
-      >
-        <Smallheader />
-        <Typography variant="h4" gutterBottom className="font-weight-bold">
-          GİRİŞ YAP
-        </Typography>
-
-        <form onSubmit={handleLoginSubmit} className="w-100 form-container">
-          <TextField
-            label="E-posta"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mb-3"
-          />
-          <TextField
-            label="Şifre"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="mb-3"
-          />
-          <Button type="submit" variant="contained" className="login-button">
-            Giriş Yap
-          </Button>
-        </form>
-
-        <div className="mt-3 d-flex justify-content-center">
-          <Typography
-            variant="body2"
-            className="text-secondary"
-            style={{ cursor: "pointer" }}
-            onClick={() => navigate("/kayit")}
-          >
-            Hesabınız yok mu ?
+      <div className="row w-100">
+        <div className="col-12 col-md-6 offset-md-3 d-flex flex-column align-items-center p-4 position-relative">
+          
+          <Typography variant="h4" gutterBottom className="font-weight-bold">
+            GİRİŞ YAP
           </Typography>
+  
+          <form onSubmit={handleLoginSubmit} className="w-100">
+            <div className="mb-3">
+              <TextField
+                label="E-posta"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <TextField
+                label="Şifre"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <Button type="submit" variant="contained" fullWidth className="login-button">
+              Giriş Yap
+            </Button>
+          </form>
+  
+          <div className="mt-3 d-flex justify-content-center">
+            <Typography
+              variant="body2"
+              className="text-secondary"
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/kayit")}
+            >
+              Hesabınız yok mu ?
+            </Typography>
+          </div>
+          
         </div>
-      </Grid>
-    </Grid>
+        
+      </div>
+    </div>
   );
+  
 };
 
 export default LoginPage;

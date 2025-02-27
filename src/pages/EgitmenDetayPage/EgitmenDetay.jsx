@@ -1,18 +1,19 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col, Card, Dropdown, Button } from "react-bootstrap";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import BookSection from "../../components/BookSection";
-import VideoSection from "../../components/VideoSection";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
-import "./egitmendetay.css"; // CSS dosyanızı eklediğinizden emin olun.
+import videoicon from "../../assets/images/videoicon.png";
+import questionIcon from "../../assets/images/soruicon.png";
+import cargoIcon from "../../assets/images/kargoicon.png";
+import "./egitmendetay.css";
+import "../../components/videosection.css"; // VideoSection ile ilgili stiller
 
 const EgitmenDetay = () => {
   return (
     <>
-      <Header />
       <Container className="profile-container">
-
         {/* Profil Resmi ve Başlık */}
         <div className="profile-section">
           <img
@@ -35,9 +36,101 @@ const EgitmenDetay = () => {
           </p>
         </div>
 
-       
+        {/* Kitap Bölümü */}
         <BookSection />
-        <VideoSection />
+
+        {/* Video Bölümü */}
+        <div className="video-section mt-5">
+  {/* Başlık */}
+  
+    <Col xs={12}>
+      <h3 className="text-center">Videolar</h3>
+    </Col>
+
+
+  {/* Videolar */}
+  <Row>
+    {Array(3)
+      .fill(null)
+      .map((_, idx) => (
+        <Col
+          md={4}
+          sm={6}
+          xs={12}
+          className="d-flex justify-content-center"
+          key={idx}
+        >
+          <Card className="h-100 book-card">
+            {/* Başlık */}
+            <Card.Header className="text-center book-title">
+              <strong>Jinekoloji Videoları</strong>
+            </Card.Header>
+
+            {/* Görsel */}
+            <Card.Img
+              variant="top"
+              src="src/assets/images/jine.png"
+              alt="Video Cover"
+              className="book-image"
+            />
+
+            {/* İçerik */}
+            <Card.Body>
+              <div className="icon-row">
+                <img
+                  src={videoicon}
+                  alt="Video Icon"
+                  className="custom-icon"
+                />
+                <span> 125 Video</span>
+              </div>
+              <div className="icon-row">
+                <img
+                  src={questionIcon}
+                  alt="Question Icon"
+                  className="custom-icon"
+                />
+                <span>Kitaplar pakete dahil değildir</span>
+              </div>
+              <div
+                className="icon-row"
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <img
+                  src={cargoIcon}
+                  alt="Cargo Icon"
+                  className="custom-icon"
+                />
+                <span>Videolara sınırsız erişim</span>
+              </div>
+            </Card.Body>
+
+            {/* Alt Kısım */}
+            <Card.Footer className="text-center">
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="secondary"
+                  className="dropdown-toggle"
+                  id={`dropdown-${idx}`}
+                >
+                  Konu Anlatımı
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#">Soru Kampı</Dropdown.Item>
+                  <Dropdown.Item href="#">Tekrar Kampı</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+
+              <Button variant="success" className="cart-button">
+                <span>50₺</span>
+              </Button>
+            </Card.Footer>
+          </Card>
+        </Col>
+      ))}
+  </Row>
+</div>
+
 
         {/* Sosyal Medya Bağlantıları */}
         <div className="social-media-section mt-5">
@@ -70,7 +163,6 @@ const EgitmenDetay = () => {
           </div>
         </div>
       </Container>
-      <Footer />
     </>
   );
 };

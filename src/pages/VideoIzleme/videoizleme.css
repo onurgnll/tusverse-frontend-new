@@ -44,11 +44,13 @@
   
   @media (max-width: 576px) {
     .video-container iframe {
-        margin-top: 30px;
+        margin-top: -30px;
+        margin-bottom: 10px;
       height: 250px;
-      margin-left: -15px;
+      margin-left: 0px;
       
     }
+    
     .video-title {
        
       font-size: 0.9rem;

@@ -295,7 +295,7 @@ const Homepage = () => {
         <Row className="flex-grow-1 mx-2 justify-content-center align-items-center">
   {/* Küçük ekranda sadece 1 kart göster ve ortala */}
   <Col xs={12} md={6} key={currentIndex} className="d-flex justify-content-center">
-    <div className="card2">
+    <div className="card2 same-size-card">
       <img
         src={products[currentIndex].image}
         className="card2-img-left"
@@ -314,7 +314,7 @@ const Homepage = () => {
 
   {/* Büyük ekranda ikinci kartı göster ve ortala */}
   <Col xs={12} md={6} className="d-none d-lg-flex justify-content-center">
-    <div className="card2">
+    <div className="card2 same-size-card">
       <img
         src={products[(currentIndex + 1) % products.length].image}
         className="card2-img-left"

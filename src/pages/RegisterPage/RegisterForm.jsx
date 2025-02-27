@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Alert, message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/actions/authActions";
-
+import "./registerform.css"
 const RegisterForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();

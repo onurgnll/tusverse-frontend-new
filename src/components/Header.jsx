@@ -244,7 +244,7 @@ const Header = () => {
               <PersonIcon /> Profilim
             </Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item onClick={() => handleNavigation("/logout")}>
+            <Dropdown.Item onClick={() => handleNavigation("/")}>
               <ExitToAppIcon /> Çıkış Yap
             </Dropdown.Item>
           </Dropdown.Menu>
