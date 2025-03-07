@@ -38,16 +38,14 @@ const RegisterPage = () => {
   return (
     <Grid container justifyContent="center" alignItems="center" style={{ minHeight: "100vh" }}>
       {/* Left Side: Register Form */}
-      <div style={{ position: "fixed", top: "-80px", left: "50%", transform: "translateX(-50%)", zIndex: 10 }}>
-        <img src="src/assets/images/siyah_logo.png" alt="Logo" style={{ width: "300px", height: "auto" }} />
-      </div>
-      <Grid item xs={12} md={6} style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "20px", position: "relative" }}>
+      
+      <Grid item xs={12} md={6} style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
         <Typography variant="h4" gutterBottom style={{ fontWeight: "bold" }}>KAYIT OL</Typography>
 
         {step === 1 && (
           <>
             <TextField label="Telefon" variant="outlined" fullWidth margin="normal" value={phone} onChange={(e) => setPhone(e.target.value)} style={{ width: "50%" }} />
-            <Button variant="contained" onClick={handlePhoneSubmit} style={{ marginTop: "20px", backgroundColor: "#00C7D5", color: "#fff", maxWidth: "150px" }}>
+            <Button variant="contained" onClick={handlePhoneSubmit} style={{ marginTop: "10px", backgroundColor: "#00C7D5", color: "#fff", maxWidth: "150px" }}>
               Devam Et
             </Button>
           </>

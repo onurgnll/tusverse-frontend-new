@@ -22,7 +22,7 @@ const BookSection = () => {
               className="d-flex justify-content-center mb-4"
               key={idx}
             >
-              <Card className="h-100 book-card" style={{ width: "100%", maxWidth: "350px" }}>
+              <Card className="h-100 book-card" style={{ width: "100%", maxWidth: "250px" }}>
                 <Card.Header className="text-center book-title">
                   <strong>Patoloji Sorularla Son Tekrar Kitap</strong>
                 </Card.Header>

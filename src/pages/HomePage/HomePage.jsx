@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useEffect, useState }  from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
@@ -10,6 +10,9 @@ import { Carousel } from "antd";
 import "./home.css";
 import EgitmenlerPage from "../EgitmenlerPage/EgitmenlerPage";
 import FaqSection from "../../components/FaqSections";
+import { requestWithoutAuth } from "../../helpers/requests";
+import { useDispatch, useSelector } from "react-redux";
+
 const InfoBox = ({ title, value, icon, color }) => { //deneme sınavı exambox
   return (
     <div className="info-box" style={{ borderColor: color, boxShadow: `0 4px 8px ${color}` }}>
@@ -24,7 +27,9 @@ const InfoBox = ({ title, value, icon, color }) => { //deneme sınavı exambox
   );
 };
 const Homepage = () => {
-   // Static array of instructors
+  
+
+
    const instructors = [ //redux state olarak tut useselectorle seç
     {
       id: 1,
@@ -290,7 +295,7 @@ const Homepage = () => {
         <Row className="flex-grow-1 mx-2 justify-content-center align-items-center">
   {/* Küçük ekranda sadece 1 kart göster ve ortala */}
   <Col xs={12} md={6} key={currentIndex} className="d-flex justify-content-center">
-    <div className="card2">
+    <div className="card2 same-size-card">
       <img
         src={products[currentIndex].image}
         className="card2-img-left"
@@ -309,7 +314,7 @@ const Homepage = () => {
 
   {/* Büyük ekranda ikinci kartı göster ve ortala */}
   <Col xs={12} md={6} className="d-none d-lg-flex justify-content-center">
-    <div className="card2">
+    <div className="card2 same-size-card">
       <img
         src={products[(currentIndex + 1) % products.length].image}
         className="card2-img-left"

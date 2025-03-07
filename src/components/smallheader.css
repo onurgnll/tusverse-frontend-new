@@ -3,7 +3,7 @@
     top: -220px; /* Masaüstünde yukarıda */
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
+  
   }
   
   .smallheader-logo {
