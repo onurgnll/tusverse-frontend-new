@@ -1,62 +1,322 @@
-/* Genel Stiller */
-.video-container {
-    width: 100%;
-    max-width: 850px;
-    margin: auto;
-    margin-left: 5%;
-  }
-  
+/* Main Container */
+
+.video-page-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+/* Video Player Section */
+.video-player-container {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.video-frame {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-info {
+  padding: 20px;
+}
+
+.video-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.video-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.video-meta .icon {
+  margin-right: 5px;
+  position: relative;
+  top: -1px;
+}
+
+.video-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 6px;
+  color: #555;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.action-button:hover {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.action-button .icon {
+  font-size: 1.1rem;
+}
+
+/* Playlist Section */
+.playlist-container {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.playlist-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.playlist-header h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.playlist-stats {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.video-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.video-list-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.video-list-item:hover {
+  background-color: #f5f5f5;
+}
+
+.video-list-item.active {
+  background-color: #e6f7ff;
+  border-left: 4px solid #00c7d5;
+}
+
+.video-number {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00c7d5;
+  color: white;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.video-list-item.active .video-number {
+  background-color: #0097a7;
+}
+
+.video-list-info {
+  flex: 1;
+}
+
+.video-list-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.new-badge {
+  background-color: #ff6b6b !important;
+  font-size: 0.7rem;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.video-list-duration {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.video-list-icon {
+  color: #00c7d5;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.video-list-item:hover .video-list-icon,
+.video-list-item.active .video-list-icon {
+  opacity: 1;
+}
+
+/* Course Materials */
+.course-materials {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.course-materials h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.course-materials p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.materials-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #00c7d5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.materials-button:hover {
+  background-color: #0097a7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 199, 213, 0.2);
+}
+
+/* Scrollbar Styling */
+.video-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.video-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.video-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.video-list::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+.video-container .ratio {
+  width: 850px;
+  height: 500px;
+  margin-left: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
   .video-title {
     font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 10px;
   }
-  
+
   .video-list {
     max-height: 300px;
-    overflow-y: auto;
   }
-  
-  /* Responsive Tasarım */
-  @media (max-width: 992px) {
-    .video-container {
-      max-width: 100%;
-      margin-left: 10px;
-    }
-    .video-title {
-      font-size: 1rem;
-    }
+}
+
+@media (max-width: 768px) {
+  .video-page-container {
+    padding: 10px;
   }
-  
-  @media (max-width: 768px) {
-    .video-container iframe {
-      height: 300px;
-      margin-left: -25px;
-    }
-    .video-title {
-      text-align: center;
-    }
-    .video-list {
-       
-      max-height: 200px;
-    }
+
+  .video-info {
+    padding: 15px;
   }
-  
-  @media (max-width: 576px) {
-    .video-container iframe {
-        margin-top: -30px;
-        margin-bottom: 10px;
-      height: 250px;
-      margin-left: 0px;
-      
-    }
-    
-    .video-title {
-       
-      font-size: 0.9rem;
-    }
-    .video-list {
-      font-size: 0.85rem;
-    }
+
+  .video-title {
+    font-size: 1.1rem;
   }
-  
+
+  .video-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .playlist-header {
+    padding: 15px;
+  }
+
+  .playlist-stats {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .video-list-item {
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .video-page-container {
+    padding: 5px;
+  }
+
+  .video-player-container,
+  .playlist-container,
+  .course-materials {
+    border-radius: 8px;
+  }
+
+  .video-info {
+    padding: 12px;
+  }
+
+  .video-title {
+    font-size: 1rem;
+  }
+
+  .video-actions {
+    flex-wrap: wrap;
+  }
+
+  .action-button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .video-list-title {
+    font-size: 0.9rem;
+  }
+}
+

@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import { Container, Row, Col, ListGroup, Card } from "react-bootstrap";
 import "./videoizleme.css"
 const videos = [
-  { id: 1, title: "1- Patoloji - Konu Kamp - 01-A Hücre Zedelenmesi", src: "https://www.youtube.com/embed/hvChw5vzpbQ" },
-  { id: 2, title: "2- Patoloji - Konu Kamp - 02-A İltihap", src: "https://www.youtube.com/embed/FxKOlZPmUDA" },
-  { id: 3, title: "3- Patoloji - Konu Kamp - 03-A Doku Tamiri", src: "https://www.youtube.com/embed/Cq0aamOWyJ4" },
-  { id: 4, title: "4- Patoloji - Konu Kamp - 04-A Tümör Patolojisi", src: "https://www.youtube.com/embed/oiVIR4GkOCc" }
+  { id: 1, title: "1- Patoloji - Konu Kamp - 01-A Hücre Zedelenmesi", src: "https://www.youtube.com/embed/YHfOsSHeXMo" },
+  { id: 2, title: "2- Patoloji - Konu Kamp - 02-A İltihap", src: "https://www.youtube.com/embed/49UWiMdkTUo" },
+  { id: 3, title: "3- Patoloji - Konu Kamp - 03-A Doku Tamiri", src: "https://www.youtube.com/embed/XYcl-jifEWs" },
+  { id: 4, title: "4- Patoloji - Konu Kamp - 04-A Tümör Patolojisi", src: "https://www.youtube.com/embed/oiVIR4GkOCc" } 
 ];
+
 
 const VideoPage = () => {
   const [selectedVideo, setSelectedVideo] = useState(videos[0]);
 
   return (
-    <Row className="my-5 ">
+    <Row className="my-5 g-0">
       <Row>
-        <Col md={8} lg={8} className="video-container">
+        <Col md={8} lg={8} className="video-container ">
           <div className="w-100">
             <div>
               <div className="ratio ratio-16x9">
