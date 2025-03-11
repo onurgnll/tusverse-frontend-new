@@ -9,7 +9,7 @@ import questionIcon from "../../assets/images/soruicon.png";
 import cargoIcon from "../../assets/images/kargoicon.png";
 import "./egitmendetay.css";
 import "../../components/videosection.css"; // VideoSection ile ilgili stiller
-
+import VideoSatisPage from "../SatisPage/Video/VideoSatisPage";
 const EgitmenDetay = () => {
   return (
     <>
@@ -38,17 +38,22 @@ const EgitmenDetay = () => {
 
         {/* Kitap Bölümü */}
         <BookSection />
+        <div style={{ textAlign: "left", marginLeft: "-55px" }}>
+  <VideoSatisPage />
+</div>
 
-        {/* Video Bölümü */}
+        
+
+        {/* Video Bölümü 
         <div className="video-section mt-5">
-  {/* Başlık */}
+  
   
     <Col xs={12}>
       <h3 className="text-center">Videolar</h3>
     </Col>
 
 
-  {/* Videolar */}
+  
   <Row>
     {Array(3)
       .fill(null)
@@ -61,12 +66,12 @@ const EgitmenDetay = () => {
           key={idx}
         >
           <Card className="h-100 book-card">
-            {/* Başlık */}
+            
             <Card.Header className="text-center book-title">
               <strong>Jinekoloji Videoları</strong>
             </Card.Header>
 
-            {/* Görsel */}
+           
             <Card.Img
               variant="top"
               src="src/assets/images/jine.png"
@@ -74,7 +79,7 @@ const EgitmenDetay = () => {
               className="book-image"
             />
 
-            {/* İçerik */}
+            
             <Card.Body>
               <div className="icon-row">
                 <img
@@ -105,7 +110,7 @@ const EgitmenDetay = () => {
               </div>
             </Card.Body>
 
-            {/* Alt Kısım */}
+            
             <Card.Footer className="text-center">
               <Dropdown>
                 <Dropdown.Toggle
@@ -131,9 +136,9 @@ const EgitmenDetay = () => {
   </Row>
 </div>
 
-
+*/}
         {/* Sosyal Medya Bağlantıları */}
-        <div className="social-media-section mt-5">
+        <div className="social-media-section mt-5 mb-5">
           <h5>Sosyal Medyada Emrullah Beyazyıldız</h5>
           <div className="d-flex justify-content-center mt-3">
             <a

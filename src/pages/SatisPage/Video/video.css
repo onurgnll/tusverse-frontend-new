@@ -4,7 +4,10 @@
   margin-top: 20px !important;
   margin-bottom: 0.3rem;
 }
-
+.custom-icon{
+  width: 28px;
+  height: 28px;
+}
 /* Cards container with a margin */
 .cards-container {
   margin-left: 10rem !important; /* Adjust to move cards more to the right */

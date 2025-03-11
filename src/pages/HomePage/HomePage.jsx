@@ -12,7 +12,7 @@ import EgitmenlerPage from "../EgitmenlerPage/EgitmenlerPage";
 import FaqSection from "../../components/FaqSections";
 import { requestWithoutAuth } from "../../helpers/requests";
 import { useDispatch, useSelector } from "react-redux";
-
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 const InfoBox = ({ title, value, icon, color }) => { //deneme sınavı exambox
   return (
     <div className="info-box" style={{ borderColor: color, boxShadow: `0 4px 8px ${color}` }}>
@@ -100,9 +100,13 @@ const Homepage = () => {
       <Container fluid className="p-4">
         <div className="carousel-container">
           <Carousel
-            autoplay
-            dots={{ className: "custom-dots" }}
-            dotPosition="bottom"
+           autoplay={true} 
+           dots={{ className: "custom-dots" }}
+           dotPosition="bottom"
+           effect="fade" 
+           arrows={true} // ok gelmeli 
+           prevArrow={<LeftOutlined />}  // okları manuel de dened,m ekelyemedim css i kontrol et 
+           nextArrow={<RightOutlined />} 
           >
             {/* Slide 1 */}
             <div>
@@ -204,7 +208,7 @@ const Homepage = () => {
 
   <Col md={8} className="d-flex align-items-center ">
     <Row className="w-100">
-      <Col md={6} className="mb-3 ">
+      <Col md={6} className="mb-3 custom-margin-top">
         <img
           src="src/assets/images/img.jpg"
           alt="Feature 1"
@@ -228,7 +232,7 @@ const Homepage = () => {
               <p className="text-danger fw-bold">
                 SINAVIN BAŞLAMASINA KALAN SÜRE: 1 Gün 15 Saat 47 Dakika
               </p>
-              <Card className="mx-auto card-custom" style={{ maxWidth: "350px" }}>
+              <Card className="mx-auto card-custom" style={{ minWidth: "500px" }}>
                 <Card.Body>
                   <h4 className="card-title">1. TÜRKİYE GENELİ TUS DENEME SINAVI</h4>
                   <p className="card-date">25.12.2024 09:00</p>
@@ -248,7 +252,7 @@ const Homepage = () => {
               <p className="text-danger fw-bold">
                 SINAVIN BAŞLAMASINA KALAN SÜRE: 3 Gün 10 Saat 30 Dakika
               </p>
-              <Card className="mx-auto card-custom" style={{ maxWidth: "350px" }}>
+              <Card className="mx-auto card-custom" style={{ minWidth: "500px" }}>
                 <Card.Body>
                   <h4 className="card-title">2. TÜRKİYE GENELİ TUS DENEME SINAVI</h4>
                   <p className="card-date">28.12.2024 14:00</p>
@@ -268,7 +272,7 @@ const Homepage = () => {
               <p className="text-danger fw-bold">
                 SINAVIN BAŞLAMASINA KALAN SÜRE: 5 Gün 7 Saat 20 Dakika
               </p>
-              <Card className="mx-auto card-custom" style={{ maxWidth: "350px" }}>
+              <Card className="mx-auto card-custom" style={{ minWidth: "500px" }}>
                 <Card.Body>
                   <h4 className="card-title">3. TÜRKİYE GENELİ TUS DENEME SINAVI</h4>
                   <p className="card-date">30.12.2024 11:00</p>
@@ -293,7 +297,7 @@ const Homepage = () => {
         </button>
 
         <Row className="flex-grow-1 mx-2 justify-content-center align-items-center">
-  {/* Küçük ekranda sadece 1 kart göster ve ortala */}
+  {/* Küçük ekranda sadece 1 kart gösterio */}
   <Col xs={12} md={6} key={currentIndex} className="d-flex justify-content-center">
     <div className="card2 same-size-card">
       <img
@@ -312,7 +316,7 @@ const Homepage = () => {
     </div>
   </Col>
 
-  {/* Büyük ekranda ikinci kartı göster ve ortala */}
+  {/* Büyük ekranda ikinci kartı gösterio */}
   <Col xs={12} md={6} className="d-none d-lg-flex justify-content-center">
     <div className="card2 same-size-card">
       <img
@@ -346,7 +350,7 @@ const Homepage = () => {
         <InfoBox
           title="Kitap İçeriği"
           value="62"
-          icon="src/assets/images/icon1.png" // İkon yolunuza göre düzenleyin
+          icon="src/assets/images/icon1.png" 
           color="#008000"
         />
         <InfoBox

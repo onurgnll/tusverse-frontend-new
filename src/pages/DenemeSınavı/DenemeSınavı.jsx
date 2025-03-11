@@ -112,7 +112,7 @@ Os nasale`;
   };
 
   return (
-    <Box sx={{ p: 4, backgroundColor: "#f8f9fa", minHeight: "100vh", width: "100vw" }} className="exam-page-start">
+    <Box sx={{ p: 4, backgroundColor: "#f8f9fa" }} className="exam-page-start">
       <Grid container spacing={3}>
         <Grid item xs={isMobile ? 12 : 8}>
           <Card sx={{ p: 3 }}>
@@ -148,26 +148,37 @@ Os nasale`;
               </Box>
             ))}
             <Box display="flex" justifyContent="space-between">
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="page-navigation-button"
-              >
-                Önceki Sayfa
-              </Button>
-              <Typography variant="body1">Sayfa {currentPage}</Typography>
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === Math.ceil(questions.length / questionsPerPage)}
-                className="page-navigation-button"
-              >
-                Sonraki Sayfa
-              </Button>
-            </Box>
+  <Button
+    variant="outlined"
+    color="primary"
+    onClick={() => handlePageChange(currentPage - 1)}
+    disabled={currentPage === 1}
+    sx={{
+      fontSize: '0.8rem',
+      padding: '4px 8px',  
+      maxWidth: '150px',   
+    }}
+    className="page-navigation-button"
+  >
+    Önceki Sayfa
+  </Button>
+  <Typography variant="body1" sx={{ fontSize: '0.8rem' }}>Sayfa {currentPage}</Typography>
+  <Button
+    variant="outlined"
+    color="primary"
+    onClick={() => handlePageChange(currentPage + 1)}
+    disabled={currentPage === Math.ceil(questions.length / questionsPerPage)}
+    sx={{
+      fontSize: '0.8rem', 
+      padding: '4px 8px',  
+      maxWidth: '150px',   
+    }}
+    className="page-navigation-button"
+  >
+    Sonraki Sayfa
+  </Button>
+</Box>
+
           </Card>
         </Grid>
 
@@ -176,8 +187,10 @@ Os nasale`;
           <Card
             sx={{
               p: 3,
-              position: "sticky",
-              top: 100,
+              position: "fixed",
+              top: 200,
+              marginBottom:20,
+              zIndex: 1100,
               transition: "top 0.3s ease-in-out",
               height: 'auto', 
             }}

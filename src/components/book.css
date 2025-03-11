@@ -1,14 +1,21 @@
+body, html {
+  overflow-x: hidden; /* Sayfanın sağa kaymasını engeller */
+  
+}
+
 .book-section {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;
+  padding-bottom: 20px !important;
 }
 
+
 .book-card {
-  max-width: 350px; /* Kart genişliği */
-  border: 2px solid #00C7D5;
+  max-width: 350px; 
+  
   border-radius: 8px;
   box-shadow: none;
   text-align: center;
@@ -28,8 +35,11 @@
   width: 50% !important;
   height: auto;
   padding: 5px;
+  transition: transform 0.3s ease; 
 }
-
+.book-image:hover {
+  transform: scale(1.1); 
+}
 .icon-row {
   display: flex;
   align-items: center;
@@ -42,17 +52,32 @@
   width: 24px;
   height: 24px;
 }
-
 .cart-button {
-  width: 100% !important;
+  width: 40% !important;
   font-size: 15px;
-  padding: 8px;
-  background-color: #00C7D5 !important;
-  border: none;
-  color: white;
+  padding: 8px;  
+  border: none !important;
   font-weight: bold;
-  border-radius: 5px;
+  color: white;
+  background: linear-gradient(45deg, #4CAF50, #81C784); /* Yeşil tonlarıyla geçiş */
+  border-radius: 8px !important;
+  transition: all 0.3s ease; /* Butonun tüm efektlerini yumuşatarak geçiş ekler */
+  outline: none;
+  box-shadow: none;
+  text-align: center;
 }
+
+.cart-button:hover {
+  background: linear-gradient(45deg, #388E3C, #66BB6A); /* Hover durumunda farklı yeşil tonları */
+  transform: scale(1.05); /* Butonun biraz büyümesini sağlar */
+}
+
+.cart-button:active {
+  transform: scale(0.95); /* Tıklama efekti: buton küçükleşir */
+  background: linear-gradient(45deg, #2C6B3D, #43A047); /* Tıklanırken daha koyu yeşil geçişi */
+}
+
+
 
   
   @media (max-width: 768px) {

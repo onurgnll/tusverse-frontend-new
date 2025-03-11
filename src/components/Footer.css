@@ -4,6 +4,11 @@ html, body {
   display: flex;
   flex-direction: column;
 }
+/* Footer.css */
+.footer .col-md-3 {
+  padding-left: 150px; 
+}
+
 
 .main-content {
   flex: 1;
