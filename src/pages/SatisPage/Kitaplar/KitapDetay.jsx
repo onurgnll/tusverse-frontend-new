@@ -1,109 +1,97 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { useParams, Link } from "react-router-dom"
-import { Row, Col, Card, Button, Container, Breadcrumb, Modal } from "react-bootstrap"
-import BookIcon from "@mui/icons-material/Book"
-import questionIcon from "../../../assets/images/soruicon.png"
-import cargoIcon from "../../../assets/images/kargoicon.png"
-import "./bookdetail.css"
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import {
+  Row,
+  Col,
+  Card,
+  Button,
+  Container,
+  Breadcrumb,
+  Modal,
+} from "react-bootstrap";
+import BookIcon from "@mui/icons-material/Book";
+import questionIcon from "../../../assets/images/soruicon.png";
+import cargoIcon from "../../../assets/images/kargoicon.png";
+import "./bookdetail.css";
 
 const KitapDetay = () => {
-  const { id } = useParams()
-  const [book, setBook] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [selectedSamplePage, setSelectedSamplePage] = useState(null)
-  const [showModal, setShowModal] = useState(false)
-  const [modalImage, setModalImage] = useState(null)
-
+  const { id } = useParams();
+  const [book, setBook] = useState({
+    id: id,
+    title: "Patoloji Sorularla Son Tekrar Kitap",
+    author: "Doç Dr. Emrullah Beyazyıldız",
+    image: "src/assets/images/patoloji.png",
+    pages: 232,
+    questions: 500,
+    price: 50,
+    description:
+      "Bu kitap, patoloji alanında kapsamlı bir tekrar kaynağı olarak hazırlanmıştır. İçerisinde 500 soru ve detaylı açıklamalar bulunmaktadır. Tıp öğrencileri ve uzmanlık sınavlarına hazırlananlar için ideal bir kaynaktır.",
+    features: [
+      "Kapsamlı soru bankası",
+      "Detaylı çözümler",
+      "Görsel destekli içerik",
+      "Kolay anlaşılır anlatım",
+    ],
+    inStock: true,
+    samplePages: [
+      {
+        id: 1,
+        thumbnail: "src/assets/images/exdeneme.png",
+        fullImage: "src/assets/images/exdeneme.png",
+        title: "İçindekiler",
+      },
+      {
+        id: 2,
+        thumbnail: "src/assets/images/exdeneme.png",
+        fullImage: "src/assets/images/exdeneme.png",
+        title: "Örnek Soru 1",
+      },
+      {
+        id: 3,
+        thumbnail: "src/assets/images/exdeneme.png",
+        fullImage: "src/assets/images/exdeneme.png",
+        title: "Örnek Soru 2",
+      },
+      {
+        id: 4,
+        thumbnail: "src/assets/images/exdeneme.png",
+        fullImage: "src/assets/images/exdeneme.png",
+        title: "Çözüm Örneği",
+      },
+    ],
+  });
+  const [loading, setLoading] = useState(true);
+  const [selectedSamplePage, setSelectedSamplePage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [modalImage, setModalImage] = useState(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      const bookData = {
-        id: id,
-        title: "Patoloji Sorularla Son Tekrar Kitap",
-        author: "Doç Dr. Emrullah Beyazyıldız",
-        image: "src/assets/images/patoloji.png",
-        pages: 232,
-        questions: 500,
-        price: 50,
-        description:
-          "Bu kitap, patoloji alanında kapsamlı bir tekrar kaynağı olarak hazırlanmıştır. İçerisinde 500 soru ve detaylı açıklamalar bulunmaktadır. Tıp öğrencileri ve uzmanlık sınavlarına hazırlananlar için ideal bir kaynaktır.",
-        features: ["Kapsamlı soru bankası", "Detaylı çözümler", "Görsel destekli içerik", "Kolay anlaşılır anlatım"],
-        inStock: true,
-        samplePages: [
-          {
-            id: 1,
-            thumbnail: "src/assets/images/exdeneme.png",
-            fullImage: "src/assets/images/exdeneme.png",
-            title: "İçindekiler",
-          },
-          {
-            id: 2,
-            thumbnail: "src/assets/images/exdeneme.png",
-            fullImage: "src/assets/images/exdeneme.png",
-            title: "Örnek Soru 1",
-          },
-          {
-            id: 3,
-            thumbnail: "src/assets/images/exdeneme.png",
-            fullImage: "src/assets/images/exdeneme.png",
-            title: "Örnek Soru 2",
-          },
-          {
-            id: 4,
-            thumbnail: "src/assets/images/exdeneme.png",
-            fullImage: "src/assets/images/exdeneme.png",
-            title: "Çözüm Örneği",
-          },
-        ],
-      }
-
-      setBook(bookData)
-      setSelectedSamplePage(bookData.samplePages[0]) // Set first sample page as default
-      setLoading(false)
-    }, 500)
-  }, [id])
+    setSelectedSamplePage(book.samplePages[0]); // Set first sample page as default
+    setLoading(false);
+  }, [id]);
   const openImageModal = (page) => {
-    setModalImage(page)
-    setShowModal(true)
-  }
+    setModalImage(page);
+    setShowModal(true);
+  };
   const navigateModal = (direction) => {
-    if (!book || !modalImage) return
+    if (!book || !modalImage) return;
 
-    const currentIndex = book.samplePages.findIndex((page) => page.id === modalImage.id)
-    let newIndex
+    const currentIndex = book.samplePages.findIndex(
+      (page) => page.id === modalImage.id
+    );
+    let newIndex;
 
     if (direction === "next") {
-      newIndex = (currentIndex + 1) % book.samplePages.length
+      newIndex = (currentIndex + 1) % book.samplePages.length;
     } else {
-      newIndex = (currentIndex - 1 + book.samplePages.length) % book.samplePages.length
+      newIndex =
+        (currentIndex - 1 + book.samplePages.length) % book.samplePages.length;
     }
 
-    setModalImage(book.samplePages[newIndex])
-  }
-
-
-  if (loading) {
-    return (
-      <Container className="py-5 text-center">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Yükleniyor...</span>
-        </div>
-      </Container>
-    )
-  }
-
-  if (!book) {
-    return (
-      <Container className="py-5 text-center">
-        <h3>Kitap bulunamadı</h3>
-        <Link to="/" className="btn btn-primary mt-3">
-          Ana Sayfaya Dön
-        </Link>
-      </Container>
-    )
-  }
+    setModalImage(book.samplePages[newIndex]);
+  };
 
   return (
     <Container fluid className="py-5 book-detail-container">
@@ -127,7 +115,11 @@ const KitapDetay = () => {
           <Row className="mt-4">
             <Col lg={5} md={6} className="mb-4">
               <div className="book-detail-image-container">
-                <img src={book.image || "/placeholder.svg"} alt={book.title} className="book-detail-image img-fluid" />
+                <img
+                  src={book?.image || "/placeholder.svg"}
+                  alt={book?.title}
+                  className="book-detail-image img-fluid"
+                />
               </div>
             </Col>
             <Col lg={7} md={6}>
@@ -152,12 +144,20 @@ const KitapDetay = () => {
                 </div>
 
                 <div className="info-item d-flex align-items-center mb-2">
-                  <img src={questionIcon || "/placeholder.svg"} alt="Question Icon" style={{ width: 32, height: 32 }} />
+                  <img
+                    src={questionIcon || "/placeholder.svg"}
+                    alt="Question Icon"
+                    style={{ width: 32, height: 32 }}
+                  />
                   <span className="ms-2">{book.questions} Soru</span>
                 </div>
 
                 <div className="info-item d-flex align-items-center mb-2">
-                  <img src={cargoIcon || "/placeholder.svg"} alt="Cargo Icon" style={{ width: 32, height: 32 }} />
+                  <img
+                    src={cargoIcon || "/placeholder.svg"}
+                    alt="Cargo Icon"
+                    style={{ width: 32, height: 32 }}
+                  />
                   <span className="ms-2">Hızlı Kargo</span>
                 </div>
               </div>
@@ -212,7 +212,10 @@ const KitapDetay = () => {
             <Card.Header as="h4">Örnek Sayfalar</Card.Header>
             <Card.Body>
               {selectedSamplePage && (
-                <div className="selected-sample-page mb-3" onClick={() => openImageModal(selectedSamplePage)}>
+                <div
+                  className="selected-sample-page mb-3"
+                  onClick={() => openImageModal(selectedSamplePage)}
+                >
                   <img
                     src={selectedSamplePage.fullImage || "/placeholder.svg"}
                     alt={selectedSamplePage.title}
@@ -229,9 +232,11 @@ const KitapDetay = () => {
                 {book.samplePages.map((page) => (
                   <div
                     key={page.id}
-                    className={`sample-page-thumbnail ${selectedSamplePage?.id === page.id ? "active" : ""}`}
+                    className={`sample-page-thumbnail ${
+                      selectedSamplePage?.id === page.id ? "active" : ""
+                    }`}
                     onClick={() => {
-                      setSelectedSamplePage(page)
+                      setSelectedSamplePage(page);
                     }}
                   >
                     <img
@@ -249,7 +254,13 @@ const KitapDetay = () => {
       </Row>
 
       {/* Image Modal */}
-      <Modal show={showModal} onHide={() => setShowModal(false)} size="lg" centered className="sample-page-modal">
+      <Modal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        size="lg"
+        centered
+        className="sample-page-modal"
+      >
         <Modal.Header closeButton>
           <Modal.Title>{modalImage?.title}</Modal.Title>
         </Modal.Header>
@@ -285,10 +296,16 @@ const KitapDetay = () => {
             {book.samplePages.map((page) => (
               <div
                 key={page.id}
-                className={`modal-thumbnail ${modalImage?.id === page.id ? "active" : ""}`}
+                className={`modal-thumbnail ${
+                  modalImage?.id === page.id ? "active" : ""
+                }`}
                 onClick={() => setModalImage(page)}
               >
-                <img src={page.thumbnail || "/placeholder.svg"} alt={page.title} className="img-fluid" />
+                <img
+                  src={page.thumbnail || "/placeholder.svg"}
+                  alt={page.title}
+                  className="img-fluid"
+                />
               </div>
             ))}
           </div>
@@ -298,6 +315,6 @@ const KitapDetay = () => {
         </Modal.Footer>
       </Modal>
     </Container>
-  )
-}
-export default KitapDetay
+  );
+};
+export default KitapDetay;

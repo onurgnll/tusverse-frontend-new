@@ -178,50 +178,44 @@ const VideoSatis = () => {
     ],
   };
   return (
-    <Container
-      className="container w-100 d-flex flex-column justify-content-start"
-      style={{ minHeight: "100vh" }} // Ekran yüksekliğini %100 yapar
-    >
+    <div className="container-fluid w-100 d-flex flex-column align-items-center m-5">
       {/* Title */}
-      <div className="d-flex justify-content-center ">
+      <div classname=" w-50">
         <h2
-          className="text-center"
+          className="text-center d-block w-100"
           style={{
             fontSize: "36px",
-
             fontWeight: "bolder",
-            marginLeft: "500px",
+
             letterSpacing: "2px",
             marginBottom: "20px",
           }}
         >
           Online Ders Videoları
         </h2>
+
+        {/* Category Tabs */}
+        <Tabs
+          activeKey={activeCategory}
+          onSelect={(k) => setActiveCategory(k)}
+          className="mb-4 d-flex justify-content-center"
+          style={{
+            fontSize: "18px",
+            borderWidth: "5px",
+            fontWeight: "bolder",
+
+            letterSpacing: "2px",
+            marginBottom: "30px",
+          }}
+        >
+          <Tab eventKey="konu-anlatimi" title="📖 Konu Anlatımı" />
+          <Tab eventKey="soru-kampi" title="❓ Soru Kampı" />
+          <Tab eventKey="tekrar-kampi" title="🔄 Tekrar Kampı" />
+        </Tabs>
       </div>
-
-      {/* Category Tabs */}
-      <Tabs
-        activeKey={activeCategory}
-        onSelect={(k) => setActiveCategory(k)}
-        className="mb-4 d-flex justify-content-center"
-        style={{
-          fontSize: "18px",
-          borderWidth: "5px",
-          fontWeight: "bolder",
-          marginLeft: "460px",
-          letterSpacing: "2px",
-          marginBottom: "30px",
-        }}
-      >
-        <Tab eventKey="konu-anlatimi" title="📖 Konu Anlatımı" />
-        <Tab eventKey="soru-kampi" title="❓ Soru Kampı" />
-        <Tab eventKey="tekrar-kampi" title="🔄 Tekrar Kampı" />
-      </Tabs>
-
-      <Row className="g-4 d-flex justify-content-center">
+      <Row className="g-4">
         {videoCourses[activeCategory].map((course) => (
           <Col key={course.id} xs={12} sm={6} md={6} lg={3} xl={3}>
-            {" "}
             {/* Genişliği değiştirdik */}
             <Card className="h-100 shadow-sm border-light">
               <Card.Header className="bg-white border-bottom-0 pt-3 pb-0">
@@ -320,7 +314,7 @@ const VideoSatis = () => {
           </Col>
         ))}
       </Row>
-    </Container>
+    </div>
   );
 };
 
