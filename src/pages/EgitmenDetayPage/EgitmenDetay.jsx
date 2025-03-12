@@ -9,7 +9,7 @@ import questionIcon from "../../assets/images/soruicon.png";
 import cargoIcon from "../../assets/images/kargoicon.png";
 import "./egitmendetay.css";
 import "../../components/videosection.css"; // VideoSection ile ilgili stiller
-import VideoSatisPage from "../SatisPage/Video/VideoSatisPage";
+import VideoSection from "../../components/VideoSection"
 const EgitmenDetay = () => {
   return (
     <>
@@ -39,7 +39,7 @@ const EgitmenDetay = () => {
         {/* Kitap Bölümü */}
         <BookSection />
         <div style={{ textAlign: "left", marginLeft: "-55px" }}>
-  <VideoSatisPage />
+  <VideoSection />
 </div>
 
         

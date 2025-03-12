@@ -28,8 +28,8 @@ const UserProfile = () => {
       <Row className="g-4 d-flex justify-content-center align-items-center">
         {/* Kişisel Bilgiler Sol Taraf */}
         <Col lg={12} md={12} className="d-flex justify-content-center align-items-center">
-          <Card style={{ width: "100%", minWidth: "800px",transform: "none", boxShadow: "none" }} className="shadow-sm p-3">
-            <Card.Body className="text-start" style={{ paddingLeft: 0, marginLeft: -160 }}>
+          <Card style={{ width: "100%", minWidth: "800px",transform: "none", boxShadow: "none" }} className="shadow-sm p-3 align-items-start px-5">
+            <Card.Body className="text-start" style={{ paddingLeft: 0, marginLeft:0 }}>
               <Card.Title className="fw-bold d-flex align-items-center">
               <Image src={usersicon} width={40} height={40} roundedCircle className="me-3" />
                 Kişisel Bilgiler
