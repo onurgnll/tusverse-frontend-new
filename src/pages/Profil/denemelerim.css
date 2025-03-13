@@ -1,0 +1,10 @@
+/* In your CSS file (e.g., App.css) */
+.enlarge-button {
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+  .enlarge-button:hover {
+    transform: scale(1.1); /* Enlarge the button */
+    font-weight: bold; /* Make the button text bold */
+  }
+  

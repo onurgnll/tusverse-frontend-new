@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Card, Button, ListGroup } from "react-bootstrap";
-
+import BookSection from "../../components/BookSection"
 const CartPage = () => {
   const cartItems = [
     {
@@ -51,12 +51,18 @@ const CartPage = () => {
   return (
     <Container className="py-4">
       <Row className="gy-4">
-        {/* Cart Items */}
-        <Col lg={8} md={12} sm={12}>
-          <Card>
-            <Card.Header className="text-center bg-light">
-              <h5>Sepet İçeriği</h5>
-            </Card.Header>
+       
+        <Col lg={9} md={12} sm={12}> 
+          <Card
+            style={{ transform: "none", boxShadow: "none", maxWidth: "850px" }}
+            className="mb-4"
+          >
+          <div className="mt-3">
+          <h5>SEPET İÇERİĞİ</h5>
+
+          </div>
+              
+            
             <ListGroup variant="flush">
               {cartItems.map((item, index) => (
                 <ListGroup.Item
@@ -68,9 +74,9 @@ const CartPage = () => {
                       src={item.image}
                       alt={item.title}
                       style={{
-                        width: "60px",
+                        width: "100px",
                         height: "auto",
-                        marginRight: "15px",
+                        marginRight: "55px",
                         objectFit: "cover",
                       }}
                     />
@@ -88,11 +94,15 @@ const CartPage = () => {
         </Col>
 
         {/* Order Summary */}
-        <Col lg={4} md={12} sm={12}>
-          <Card>
-            <Card.Header className="text-center bg-light">
-              <h5>Sipariş Toplamı</h5>
-            </Card.Header>
+        <Col lg={3} md={12} sm={12}> {/* Adjusted to fit the layout */}
+          <Card
+            style={{ transform: "none", boxShadow: "none" }}
+            className="mb-4"
+          >
+             <div className="mt-3">
+          <h5>SİPARİŞ TOPLAMI </h5>
+
+          </div>
             <Card.Body>
               <ListGroup variant="flush" className="mb-3">
                 {cartItems.map((item, index) => (
@@ -112,8 +122,10 @@ const CartPage = () => {
             </Card.Body>
           </Card>
         </Col>
+        <h5 className="mb-3">Bu Ürünleri Alanlar Şunları da Aldı:</h5>
+        <BookSection />
 
-        {/* Recommended Products */}
+        {/* Recommended Products 
         <Col xs={12}>
           <h5 className="mb-3">Bu Ürünleri Alanlar Şunları da Aldı:</h5>
           <Row className="g-4">
@@ -148,7 +160,7 @@ const CartPage = () => {
               </Col>
             ))}
           </Row>
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );

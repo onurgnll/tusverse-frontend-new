@@ -7,7 +7,7 @@ const Footer = () => {
       <div className=" py-4">
         <div className="row">
           {/* Sol Bölüm */}
-          <div className="col-md-3 d-flex flex-column justify-content-between">
+          <div className="col-md-3  d-flex flex-column justify-content-between ">
             <ul className="list-unstyled">
               <li>Gizlilik Sözleşmesi</li>
               <li>Kullanım Şartları</li>

@@ -1,23 +1,23 @@
 import React from "react";
 import { Grid, Card, CardContent, Typography, Button } from "@mui/material";
 import { AccessTime, CalendarToday, HelpOutline } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom"; // useNavigate import edilmesi gerekiyor
+import { useNavigate } from "react-router-dom"; 
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 
 const CardItem = ({ price, priceLabel, examId }) => {
-  const navigate = useNavigate(); // navigate hook'u
+  const navigate = useNavigate(); 
 
-  // Kartın üzerine tıklandığında yönlendirme fonksiyonu
+  
   const handleCardClick = () => {
-    navigate(`/denemesınavı`); // examId'yi kullanarak yönlendirme
+    navigate(`/denemesınavı`); 
   };
 
   return (
     <Card
       variant="outlined"
-      sx={{ borderRadius: "12px", boxShadow: 3, maxWidth: "300px", cursor: "pointer" }} // mouse pointer ekledik
-      onClick={handleCardClick} // tıklama olayını ekledik
+      sx={{ borderRadius: "12px", boxShadow: 3, maxWidth: "350px", cursor: "pointer" }}
+      onClick={handleCardClick} 
     >
       <CardContent>
         <Typography variant="h6" fontWeight="bold" textAlign="center" mb={2}>
@@ -75,7 +75,7 @@ export default function PricingPage() {
             sm={6}
             md={4}
             display="flex"
-            justifyContent="center" // Kartları ortalıyor
+            justifyContent="center" 
             key={index}
           >
             <CardItem {...card} />

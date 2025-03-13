@@ -161,9 +161,7 @@ header, footer {
   max-height: 100px;
 }
 
-.gradient-btn:hover {
-  opacity: 0.9;
-}
+
 
 .btn-icon {
   font-size: 24px;
@@ -179,7 +177,7 @@ color: white;
 padding: 10px 15px;
 border-radius: 5px;
 cursor: pointer;
-transition: background 0.3s;
+
 margin-bottom: 8px;
 }
 .gradient-div{
@@ -192,11 +190,6 @@ background: linear-gradient(50deg, #eb26b3, #f0b4b4);
 background: linear-gradient(50deg, #e61d1d, #ec6a6a);
 }
 
-.gradient-div:hover,
-.gradient-div1:hover,
-.gradient-div2:hover {
-background: linear-gradient(90deg, #40a9ff, #69c0ff);
-}
 
 .div-icon {
 margin-right: 10px;
@@ -223,6 +216,8 @@ margin-top: 20px;
 background: linear-gradient(rgba(0, 123, 255, 0.3), rgba(0, 123, 255, 0.3)),
   url("src/assets/images/denemesınavı.png");
 background-size: cover;
+
+height: auto !important;
 background-position: center;
 background-repeat: no-repeat;
 color: white !important;
@@ -264,7 +259,7 @@ color: #0056b3; /* Daha koyu mavi hover etkisi */
 /* Customize the carousel navigation arrows */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-background-color: black; /* Change the arrow color to black */
+background-color: rgb(0, 0, 0); /* Change the arrow color to black */
 width: 20px; /* Adjust the width for a smaller size */
 height: 20px; /* Adjust the height for a smaller size */
 border-radius: 50%; /* Optional: Make the arrows rounded */
@@ -304,6 +299,9 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases shadow intensity on hover */
 }
 
+.custom-margin-top {
+  margin-top: 120px !important; /* Adjust the value as needed */
+}
 
 
 .container {
@@ -314,20 +312,20 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
   display: flex;
   justify-content: center;
   gap: 1rem;
-  flex-wrap: wrap; /* Kutuların doğru şekilde yerleşmesini sağlar */
+  flex-wrap: wrap; 
 }
 
 .info-box-center {
   display: flex;
   justify-content: center;
-  width: 100%; /* Ortadaki kutu tam genişlik alsın */
-  margin-top: 20px; /* Üstte biraz boşluk bırakmak için */
+  width: 100%; 
+  margin-top: 20px; 
 }
 
 .info-box {
-  
+  box-shadow: none !important;
   background-color: #f9f9f9;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 2px solid transparent;
   width: 200px;
   height: 150px;
@@ -335,14 +333,10 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+ 
 }
 
-.info-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
+
 
 
 .info-box img {
@@ -458,6 +452,7 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
     justify-content: center;
     align-items: center;
     gap: 15px;
+    
   }
 
   .info-box-center {

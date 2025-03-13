@@ -19,7 +19,9 @@ import Kitaplarım from "./pages/Profil/Kitaplarım";
 import Denemelerim from "./pages/Profil/Denemelerim";
 import FaqSection from "./components/FaqSections";
 import Sepetim from "./pages/Profil/Sepetim"
-
+import KitapDetay from "./pages/SatisPage/Kitaplar/KitapDetay";
+import VideoDetay from "./pages/SatisPage/Video/Videodetay";
+import VideoSection from "./components/VideoSection";
 import "./App.css"
 
 const App = () => {
@@ -47,6 +49,8 @@ const App = () => {
           <Route path="/kitaplarım" element={<Kitaplarım />} />
           <Route path="/denemelerim" element={<Denemelerim />} />
           <Route path="/sepetim" element={<Sepetim />} />
+          <Route path="/kitapdetay" element={<KitapDetay />} />
+          <Route path="/videodetay" element={<VideoDetay />} />
           
   
           

@@ -1,119 +1,320 @@
-import React from "react";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
-import { Row, Col, Card, Button, Dropdown } from "react-bootstrap";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
-import videoicon from "../../../assets/images/videoicon.png";
-import questionIcon from "../../../assets/images/soruicon.png";
-import cargoIcon from "../../../assets/images/kargoicon.png";
+import { useState } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Button,
+  Badge,
+  Tabs,
+  Tab,
+} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { CheckCircleFill } from "react-bootstrap-icons";
+import jineImage from "../../../assets/images/jine.png";
+import { Link } from "react-router-dom";
 import "./video.css";
 
 const VideoSatis = () => {
-  const navigate = useNavigate(); // Initialize the navigate function
+  const [activeCategory, setActiveCategory] = useState("konu-anlatimi");
 
-  // Function to handle card click
-  const handleCardClick = (videoId) => {
-    navigate(`/videoizleme`); // Redirect to video detail page
+  // Sample video course data
+  const videoCourses = {
+    "konu-anlatimi": [
+      {
+        id: 1,
+        title: "Patoloji Videoları",
+        instructor: "ÇAĞLAYAN TEKBAŞ",
+        instructorTitle: "Doç. Dr.",
+        videoCount: 120,
+        features: ["Altyapısı yeniden inşa edildi", "Videolara 3 gün erişim"],
+        price: 3999,
+        discountPrice: null,
+        image: jineImage,
+        color: "#FF9800",
+      },
+      {
+        id: 2,
+        title: "Jinekoloji Videoları",
+        instructor: "AHMET YILDIRIM",
+        instructorTitle: "Prof. Dr.",
+        videoCount: 120,
+        features: ["Altyapısı yeniden inşa edildi", "Videolara 5 mrtez erişim"],
+        price: 3999,
+        discountPrice: 2999,
+        image: jineImage,
+        color: "#E91E63",
+      },
+      {
+        id: 3,
+        title: "Patoloji Videoları",
+        instructor: "ÇAĞLAYAN TEKBAŞ",
+        instructorTitle: "Doç. Dr.",
+        videoCount: 120,
+        features: ["Altyapısı yeniden inşa edildi", "Videolara 3 gün erişim"],
+        price: 3999,
+        discountPrice: null,
+        image: jineImage,
+        color: "#FF5722",
+      },
+      {
+        id: 4,
+        title: "Jinekoloji Videoları",
+        instructor: "AHMET YILDIRIM",
+        instructorTitle: "Prof. Dr.",
+        videoCount: 120,
+        features: ["Altyapısı yeniden inşa edildi", "Videolara 5 mrtez erişim"],
+        price: 3999,
+        discountPrice: 2999,
+        image: jineImage,
+        color: "#4CAF50",
+      },
+    ],
+    "soru-kampi": [
+      {
+        id: 5,
+        title: "Anatomi Soru Kampı",
+        instructor: "MEHMET YILMAZ",
+        instructorTitle: "Prof. Dr.",
+        videoCount: 85,
+        features: ["Tüm sınav konuları kapsanır", "Videolara 7 gün erişim"],
+        price: 2499,
+        discountPrice: null,
+        image: jineImage,
+        color: "#2196F3",
+      },
+      {
+        id: 6,
+        title: "Fizyoloji Soru Kampı",
+        instructor: "AYŞE KAYA",
+        instructorTitle: "Doç. Dr.",
+        videoCount: 90,
+        features: ["500+ soru çözümü", "Videolara 7 gün erişim"],
+        price: 2699,
+        discountPrice: 1999,
+        image: jineImage,
+        color: "#4CAF50",
+      },
+      {
+        id: 7,
+        title: "Anatomi Soru Kampı",
+        instructor: "MEHMET YILMAZ",
+        instructorTitle: "Prof. Dr.",
+        videoCount: 85,
+        features: ["Tüm sınav konuları kapsanır", "Videolara 7 gün erişim"],
+        price: 2499,
+        discountPrice: null,
+        image: jineImage,
+        color: "#2196F3",
+      },
+      {
+        id: 8,
+        title: "Fizyoloji Soru Kampı",
+        instructor: "AYŞE KAYA",
+        instructorTitle: "Doç. Dr.",
+        videoCount: 90,
+        features: ["500+ soru çözümü", "Videolara 7 gün erişim"],
+        price: 2699,
+        discountPrice: 1999,
+        image: jineImage,
+        color: "#4CAF50",
+      },
+    ],
+    "tekrar-kampi": [
+      {
+        id: 9,
+        title: "Biyokimya Tekrar Kampı",
+        instructor: "ALİ YILDIRIM",
+        instructorTitle: "Prof. Dr.",
+        videoCount: 65,
+        features: [
+          "Hızlı tekrar için özel hazırlandı",
+          "Videolara 5 gün erişim",
+        ],
+        price: 1999,
+        discountPrice: null,
+        image: jineImage,
+        color: "#9C27B0",
+      },
+      {
+        id: 10,
+        title: "Mikrobiyoloji Tekrar Kampı",
+        instructor: "ZEYNEP KARA",
+        instructorTitle: "Doç. Dr.",
+        videoCount: 70,
+        features: ["Sınav odaklı tekrar", "Videolara 5 gün erişim"],
+        price: 2199,
+        discountPrice: 1799,
+        image: jineImage,
+        color: "#FF5722",
+      },
+      {
+        id: 11,
+        title: "Biyokimya Tekrar Kampı",
+        instructor: "ALİ YILDIRIM",
+        instructorTitle: "Prof. Dr.",
+        videoCount: 65,
+        features: [
+          "Hızlı tekrar için özel hazırlandı",
+          "Videolara 5 gün erişim",
+        ],
+        price: 1999,
+        discountPrice: null,
+        image: jineImage,
+        color: "#9C27B0",
+      },
+      {
+        id: 12,
+        title: "Mikrobiyoloji Tekrar Kampı",
+        instructor: "ZEYNEP KARA",
+        instructorTitle: "Doç. Dr.",
+        videoCount: 70,
+        features: ["Sınav odaklı tekrar", "Videolara 5 gün erişim"],
+        price: 2199,
+        discountPrice: 1799,
+        image: jineImage,
+        color: "#FF5722",
+      },
+    ],
   };
-
-  // Function to handle dropdown click (to prevent navigation)
-  const handleDropdownClick = (e) => {
-    e.stopPropagation(); // Prevent card click handler from firing
-  };
-
-  // Function to handle button click (to prevent navigation)
-  const handleButtonClick = (e) => {
-    e.stopPropagation(); // Prevent card click handler from firing
-  };
-
   return (
-    <>
-      <Row className="mb-3">
-        <Col className="text-center-title">
-          <h3>Videolar</h3>
-        </Col>
-      </Row>
-      <Row className="cards-container">
-        {Array(6)
-          .fill(null)
-          .map((_, idx) => (
-            <Col md={4} sm={6} xs={12} className="mb-4" key={idx}>
-              <Card
-                className="h-100 book-card"
-                onClick={() => handleCardClick(idx)} // Add click event to navigate
-              >
-                {/* Title */}
-                <Card.Header className="text-center book-title">
-                  <strong>Jinekoloji Videoları</strong>
-                </Card.Header>
+    <div className="container-fluid w-100 d-flex flex-column align-items-center m-5">
+      {/* Title */}
+      <div classname=" w-50">
+        <h2
+          className="text-center d-block w-100"
+          style={{
+            fontSize: "36px",
+            fontWeight: "bolder",
 
-                {/* Image */}
-                <Card.Img
-                  variant="top"
-                  src="src/assets/images/jine.png" // Replace with the actual video image URL
-                  alt="Video Cover"
-                  className="book-image"
-                />
+            letterSpacing: "2px",
+            marginBottom: "20px",
+          }}
+        >
+          Online Ders Videoları
+        </h2>
 
-                {/* Content with icons */}
-                <Card.Body>
-                  <div className="icon-row">
-                    <img
-                      src={videoicon}
-                      alt="Video Icon"
-                      className="custom-icon"
-                    />
-                    <span> 125 Video</span>
+        {/* Category Tabs */}
+        <Tabs
+          activeKey={activeCategory}
+          onSelect={(k) => setActiveCategory(k)}
+          className="mb-4 d-flex justify-content-center"
+          style={{
+            fontSize: "18px",
+            borderWidth: "5px",
+            fontWeight: "bolder",
+
+            letterSpacing: "2px",
+            marginBottom: "30px",
+          }}
+        >
+          <Tab eventKey="konu-anlatimi" title="📖 Konu Anlatımı" />
+          <Tab eventKey="soru-kampi" title="❓ Soru Kampı" />
+          <Tab eventKey="tekrar-kampi" title="🔄 Tekrar Kampı" />
+        </Tabs>
+      </div>
+      <Row className="g-4">
+        {videoCourses[activeCategory].map((course) => (
+          <Col key={course.id} xs={12} sm={6} md={6} lg={3} xl={3}>
+            {/* Genişliği değiştirdik */}
+            <Card className="h-100 shadow-sm border-light">
+              <Card.Header className="bg-white border-bottom-0 pt-3 pb-0">
+                <h5 className="text-center mb-0">{course.title}</h5>
+              </Card.Header>
+              <Card.Body className="d-flex flex-column">
+                <div className="d-flex mb-3">
+                  <div style={{ minWidth: "100px" }}>
+                    <Link to={`/videodetay`}>
+                      <img
+                        src={course.image || "/placeholder.svg"}
+                        alt={course.instructor}
+                        className="img-fluid rounded"
+                        style={{
+                          border: `2px solid ${course.color}`,
+                          maxHeight: "150px",
+                        }}
+                      />
+                    </Link>
                   </div>
-                  <div className="icon-row">
-                    <img
-                      src={questionIcon}
-                      alt="Question Icon"
-                      className="custom-icon"
-                    />
-                    <span>Kitaplar pakete dahil değildir</span>
+                  <div className="ms-3">
+                    <div className="mb-1" style={{ color: course.color }}>
+                      <strong>{course.instructorTitle}</strong>
+                    </div>
+                    <div className="mb-2">
+                      <strong>{course.instructor}</strong>
+                    </div>
                   </div>
-                  <div className="icon-row">
-                    <img
-                      src={cargoIcon}
-                      alt="Cargo Icon"
-                      className="custom-icon"
-                    />
-                    <span>Videolara sınırsız erişim</span>
-                  </div>
-                </Card.Body>
+                </div>
 
-                <Card.Footer className="text-center">
-                  {/* Dropdown Button for "Konu Anlatımı" */}
-                  <Dropdown onClick={handleDropdownClick}>
-                    <Dropdown.Toggle
-                      variant="secondary"
-                      className="dropdown-toggle"
-                      id={`dropdown-${idx}`}
-                    >
-                      Konu Anlatımı
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#">Soru Kampı</Dropdown.Item>
-                      <Dropdown.Item href="#">Tekrar Kampı</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-
-                  <Button
-                    variant="success"
-                    className="cart-button"
-                    onClick={handleButtonClick} // Prevent card click
+                <div className="mb-3">
+                  <Badge
+                    bg="success"
+                    className="d-flex align-items-center mb-2"
+                    style={{ width: "fit-content" }}
                   >
-                    <span>50₺</span>
+                    <CheckCircleFill className="me-1" /> {course.videoCount}{" "}
+                    Video
+                  </Badge>
+
+                  {course.features.map((feature, index) => (
+                    <div key={index} className="d-flex align-items-center mb-1">
+                      <CheckCircleFill
+                        className="me-1 text-success"
+                        size={14}
+                      />
+                      <small>{feature}</small>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-auto">
+                  <Button
+                    variant="outline-secondary"
+                    size="sm"
+                    className="w-100 mb-2"
+                    style={{
+                      height: 30,
+                      backgroundColor: course.color,
+                      color: "white",
+                      borderColor: course.color,
+                    }}
+                  >
+                    {activeCategory}
                   </Button>
-                </Card.Footer>
-              </Card>
-            </Col>
-          ))}
+
+                  <Button variant="outline-info" className="w-100 mb-2">
+                    <Link
+                      to={`/videoizleme`}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      Satın Almadan İzle <i className="ms-1">→</i>
+                    </Link>
+                  </Button>
+
+                  <Button variant="info" className="w-100 text-white">
+                    <i className="bi bi-cart me-1"></i> Satın Al
+                    <span className="ms-2">
+                      {course.discountPrice ? (
+                        <>
+                          <del className="me-1 small">
+                            {course.price.toLocaleString()} TL
+                          </del>
+                          <strong>
+                            {course.discountPrice.toLocaleString()} TL
+                          </strong>
+                        </>
+                      ) : (
+                        <strong>{course.price.toLocaleString()} TL</strong>
+                      )}
+                    </span>
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
       </Row>
-      
-    </>
+    </div>
   );
 };
 

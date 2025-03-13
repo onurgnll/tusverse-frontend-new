@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card, Image, Button } from "react-bootstrap";
 import examIcon from "../../assets/images/examicon.jpg"; // Sınav ikonunu buraya ekleyin
-
+import "./denemelerim.css"
 const ExamsPage = () => {
   const exams = [
     {
@@ -29,7 +29,7 @@ const ExamsPage = () => {
   ];
 
   return (
-    <Container fluid className="mt-5">
+    <Container fluid className="mt-5 mb-5">
       {/* Header */}
       <Row className="mb-4">
         <Col xs={12} className="text-center">
@@ -62,9 +62,13 @@ const ExamsPage = () => {
                   </div>
                 </Card.Text>
                 <div className="text-center">
-                  <Button variant={exam.buttonVariant} className="px-4 py-2">
-                    {exam.buttonText}
-                  </Button>
+                <Button
+  variant={exam.buttonVariant}
+  className="px-4 py-2 enlarge-button"
+>
+  {exam.buttonText}
+</Button>
+
                 </div>
               </Card.Body>
             </Card>

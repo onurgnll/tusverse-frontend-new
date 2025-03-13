@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import "./faqsection.css"
+import { Accordion, AccordionSummary, AccordionDetails, Typography } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import "./faqsection.css";
 
 const FaqSection = () => {
-  const [activeKey, setActiveKey] = useState(null);
-
-  const toggleAccordion = (key) => {
-    setActiveKey(activeKey === key ? null : key);
-  };
-
   const faqItems = [
     {
       id: 1,
@@ -31,21 +27,18 @@ const FaqSection = () => {
       <h2 className="text-center mb-5">Sık Sorulan Sorular</h2>
       <div className="faq-container mb-5">
         {faqItems.map((item) => (
-          <div key={item.id} className="faq-item ">
-            <div
-              className="faq-question d-flex justify-content-between align-items-center p-3"
-              onClick={() => toggleAccordion(item.id)}
-              style={{ cursor: "pointer", background: "#f8f9fa", borderRadius: "8px" }}
+          <Accordion key={item.id} sx={{ marginBottom: "10px" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`panel${item.id}-content`}
+              id={`panel${item.id}-header`}
             >
-              <span>{item.question}</span>
-              <span>{activeKey === item.id ? "▲" : "▼"}</span>
-            </div>
-            {activeKey === item.id && (
-              <div className="faq-answer p-3" style={{ background: "#ffffff", borderRadius: "8px", border: "1px solid #ddd" }}>
-                {item.answer}
-              </div>
-            )}
-          </div>
+              <Typography>{item.question}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>{item.answer}</Typography>
+            </AccordionDetails>
+          </Accordion>
         ))}
       </div>
     </section>

@@ -1,7 +1,9 @@
 import React from "react";
-import { Container, Row, Col, Card, Image, Accordion } from "react-bootstrap";
-import playIcon from "../../assets/images/videopaket.png"; // Play ikon yolu
-import videoThumbnail from "../../assets/images/sontekrar.png"; // Video görsel yolu
+import { Container, Row, Col, Card, Image } from "react-bootstrap";
+import { Accordion, AccordionSummary, AccordionDetails, Typography } from "@mui/material"; 
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import playIcon from "../../assets/images/videopaket.png";
+import videoThumbnail from "../../assets/images/sontekrar.png"; 
 
 const VideoPackagesPage = () => {
   const videos = [
@@ -33,9 +35,9 @@ const VideoPackagesPage = () => {
 
   return (
     <Container className="mt-5">
-      {/* Başlık ve Video Paketleri */}
+      
       <Row className="mb-4">
-        {/* Sayfa Başlığı */}
+        
         <Col xs={12} className="text-center mb-4">
           <h4 className="fw-bold">
             <Image src={playIcon} width={100} height={60} className="me-2" alt="Play Icon" />
@@ -43,48 +45,59 @@ const VideoPackagesPage = () => {
           </h4>
         </Col>
 
-        {/* Video Paketleri */}
+      
         <Col xs={12}>
           {videos.map((video) => (
-            <Card key={video.id} className="shadow-sm p-3 mb-4 mx-auto" style={{ maxWidth: "800px" }}>
-              <Row className="g-3 align-items-center">
-                {/* Thumbnail */}
-                <Col xs={12} md={3} className="text-center">
-                  <Image
-                    src={video.thumbnail}
-                    className="img-fluid rounded"
-                    alt="Video Thumbnail"
-                  />
-                </Col>
-
-                {/* Detaylar */}
-                <Col xs={12} md={6}>
-                  <h5 className="fw-bold">{video.title}</h5>
-                  <p className="text-muted mb-1">Satın Alma Tarihi: {video.date}</p>
-                  <p className="text-muted">{video.instructor}</p>
-                </Col>
-
-                {/* Bölümler */}
-                <Col xs={12} md={3}>
-                  <Accordion>
-                    <Accordion.Item eventKey="0">
-                      <Accordion.Header>Bölümler ({video.videoCount} Video)</Accordion.Header>
-                      <Accordion.Body>
-                        {video.sections.map((section) => (
-                          <div
-                            key={section.id}
-                            className="d-flex justify-content-between border-bottom py-2"
-                          >
-                            <span>{section.name}</span>
-                            <span className="text-muted">{section.time}</span>
-                          </div>
-                        ))}
-                      </Accordion.Body>
-                    </Accordion.Item>
-                  </Accordion>
-                </Col>
-              </Row>
-            </Card>
+           <Card key={video.id} className="shadow-sm p-3 mb-4 mx-auto" style={{ maxWidth: "800px", position: "relative" }}>
+           <Row className="g-3 align-items-center">
+            
+             <Col xs={12} md={3} className="text-center">
+               <Image src={video.thumbnail} className="img-fluid rounded" alt="Video Thumbnail" />
+             </Col>
+         
+            
+             <Col xs={12} md={6}>
+               <h5 className="fw-bold">{video.title}</h5>
+               <p className="text-muted mb-1">Satın Alma Tarihi: {video.date}</p>
+               <p className="text-muted">{video.instructor}</p>
+             </Col>
+         
+             
+             <Col xs={12} md={3} className="position-relative">
+               <Accordion>
+                 <AccordionSummary
+                   expandIcon={<ExpandMoreIcon />}
+                   aria-controls={`panel-${video.id}-content`}
+                   id={`panel-${video.id}-header`}
+                 >
+                   <Typography>Bölümler ({video.videoCount} Video)</Typography>
+                 </AccordionSummary>
+                 <AccordionDetails
+                   sx={{
+                     position: "absolute", 
+                     top: "-100%", 
+                     left: 0,
+                     width: "100%", 
+                     zIndex: 10, 
+                     backgroundColor: "white", 
+                     boxShadow: "0px -4px 6px rgba(0, 0, 0, 0.1)", 
+                     padding: "10px",
+                     maxHeight: "none",
+                     overflowY: "auto", 
+                   }}
+                 >
+                   {video.sections.map((section) => (
+                     <div key={section.id} className="d-flex justify-content-between border-bottom py-2">
+                       <span>{section.name}</span>
+                       <span className="text-muted">{section.time}</span>
+                     </div>
+                   ))}
+                 </AccordionDetails>
+               </Accordion>
+             </Col>
+           </Row>
+         </Card>
+         
           ))}
         </Col>
       </Row>
