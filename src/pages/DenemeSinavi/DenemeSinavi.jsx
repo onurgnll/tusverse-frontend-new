@@ -21,7 +21,7 @@ import {
 } from "@mui/material";
 import orbitaImage from "../../assets/orbita.jpg";
 import { Menu as MenuIcon } from "@mui/icons-material";
-import "./denemesınavı.css";
+import "./denemesinavi.css";
 
 const ExamPage = () => {
   const fileContent = `Soru: Trafik kazası sonucu orbitanın medial duvarında kırık olduğunu nasıl anlarız ?

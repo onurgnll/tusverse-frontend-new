@@ -15,8 +15,9 @@ import img from '../../assets/img.jpg';
 import icon1 from '../../assets/icon1.png';
 import icon2 from '../../assets/icon2.png';
 import newicon from '../../assets/newicon.png';
+import { Grow } from "@mui/material";
 
-import { Icon2Circle } from "react-bootstrap-icons";
+
 const InfoBox = ({ title, value, icon, color }) => {
   //deneme sınavı exambox
   return (
@@ -316,99 +317,63 @@ const Homepage = () => {
       </div>
 
       <EgitmenlerPage />
-      <div className="container-fluid ">
-        <div className="d-flex justify-content-between align-items-center mt-5">
-          {/* Sol Ok */}
-          <button className="btn btn-outline-secondary" onClick={handlePrev}>
-            &lt;
-          </button>
+      <div className="container-fluid">
+    <div className="d-flex justify-content-between align-items-center mt-5">
+      {/* Sol Ok */}
+      <button className="btn btn-outline-secondary" onClick={handlePrev}>
+        &lt;
+      </button>
 
-          <Row className="flex-grow-1 mx-2 justify-content-center align-items-center">
-            {/* Küçük ekranda sadece 1 kart gösterio */}
-            <Col
-              xs={12}
-              md={6}
-              key={currentIndex}
-              className="d-flex justify-content-center"
-            >
-              <div className="card2 same-size-card">
-                <img
-                  src={products[currentIndex].image}
-                  className="card2-img-left"
-                  alt={products[currentIndex].title}
-                />
-                <div className="card2-body">
-                  <h5 className="card2-title">
-                    {products[currentIndex].title}
-                  </h5>
-                  <p className="card2-text">
-                    {products[currentIndex].description}
-                  </p>
-                  <Button variant="primary" className="mt-auto">
-                    {products[currentIndex].price}
-                    <ShoppingCartIcon style={{ marginLeft: "8px" }} />
-                  </Button>
-                </div>
+      <Row className="flex-grow-1 mx-2 justify-content-center align-items-center">
+        {/* Küçük ekranda sadece 1 kart göster */}
+        <Col xs={12} md={6} className="d-flex justify-content-center">
+          <Grow in timeout={500} key={currentIndex}>
+            <div className="card2 same-size-card">
+              <img
+                src={products[currentIndex].image}
+                className="card2-img-left"
+                alt={products[currentIndex].title}
+              />
+              <div className="card2-body">
+                <h5 className="card2-title">{products[currentIndex].title}</h5>
+                <p className="card2-text">{products[currentIndex].description}</p>
+                <Button variant="primary" className="mt-auto">
+                  {products[currentIndex].price}
+                  <ShoppingCartIcon style={{ marginLeft: "8px" }} />
+                </Button>
               </div>
-            </Col>
+            </div>
+          </Grow>
+        </Col>
 
-            {/* Büyük ekranda ikinci kartı gösterio */}
-            <Col
-              xs={12}
-              md={6}
-              className="d-none d-lg-flex justify-content-center"
-            >
-              <div className="card2 same-size-card">
-                <img
-                  src={products[(currentIndex + 1) % products.length].image}
-                  className="card2-img-left"
-                  alt={products[(currentIndex + 1) % products.length].title}
-                />
-                <div className="card2-body">
-                  <h5 className="card2-title">
-                    {products[(currentIndex + 1) % products.length].title}
-                  </h5>
-                  <p className="card2-text">
-                    {products[(currentIndex + 1) % products.length].description}
-                  </p>
-                  <Button variant="primary" className="mt-auto">
-                    {products[(currentIndex + 1) % products.length].price}
-                    <ShoppingCartIcon style={{ marginLeft: "8px" }} />
-                  </Button>
-                </div>
+        {/* Büyük ekranda ikinci kartı göster */}
+        <Col xs={12} md={6} className="d-none d-lg-flex justify-content-center">
+          <Grow in timeout={500} key={currentIndex + 1}>
+            <div className="card2 same-size-card">
+              <img
+                src={products[(currentIndex + 1) % products.length].image}
+                className="card2-img-left"
+                alt={products[(currentIndex + 1) % products.length].title}
+              />
+              <div className="card2-body">
+                <h5 className="card2-title">{products[(currentIndex + 1) % products.length].title}</h5>
+                <p className="card2-text">{products[(currentIndex + 1) % products.length].description}</p>
+                <Button variant="primary" className="mt-auto">
+                  {products[(currentIndex + 1) % products.length].price}
+                  <ShoppingCartIcon style={{ marginLeft: "8px" }} />
+                </Button>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </Grow>
+        </Col>
+      </Row>
 
-          {/* Sağ Ok */}
-          <button className="btn btn-outline-secondary" onClick={handleNext}>
-            &gt;
-          </button>
-        </div>
-      </div>
-      <div className=" text-center mt-5">
-        <div className="info-box-row d-flex flex-wrap justify-content-center mb-5">
-          <InfoBox
-            title="Kitap İçeriği"
-            value="62"
-            icon={icon1}
-            color="#008000"
-          />
-          <InfoBox
-            title="Video İçeriği"
-            value="62"
-            icon={icon2}
-            color="#FF0000"
-          />
-
-          <InfoBox
-            title="Kayıtlı Kullanıcı"
-            value="11,603"
-            icon={newicon}
-            color="#0B115F"
-          />
-        </div>
-      </div>
+      {/* Sağ Ok */}
+      <button className="btn btn-outline-secondary" onClick={handleNext}>
+        &gt;
+      </button>
+    </div>
+  </div>
       <FaqSection />
     </>
   );

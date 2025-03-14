@@ -10,7 +10,7 @@ const CardItem = ({ price, priceLabel, examId }) => {
 
   
   const handleCardClick = () => {
-    navigate(`/denemesınavı`); 
+    navigate(`/denemesinavi`); 
   };
 
   return (

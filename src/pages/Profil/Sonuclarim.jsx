@@ -81,7 +81,7 @@ const ExamResult = () => {
     navigation.navigate("/denemelerim")
   }
 
-  // Performance rating based on percentile
+  
   const getPerformanceRating = (percentile) => {
     if (percentile >= 90) return 5
     if (percentile >= 80) return 4

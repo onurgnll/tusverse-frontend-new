@@ -1,5 +1,5 @@
 body, html {
-  overflow-x: hidden; /* Sayfanın sağa kaymasını engeller */
+  overflow-x: hidden; 
   
 }
 
@@ -59,22 +59,22 @@ body, html {
   border: none !important;
   font-weight: bold;
   color: white;
-  background: linear-gradient(45deg, #4CAF50, #81C784); /* Yeşil tonlarıyla geçiş */
+  background: linear-gradient(45deg, #4CAF50, #81C784); 
   border-radius: 8px !important;
-  transition: all 0.3s ease; /* Butonun tüm efektlerini yumuşatarak geçiş ekler */
+  transition: all 0.3s ease; 
   outline: none;
   box-shadow: none;
   text-align: center;
 }
 
 .cart-button:hover {
-  background: linear-gradient(45deg, #388E3C, #66BB6A); /* Hover durumunda farklı yeşil tonları */
-  transform: scale(1.05); /* Butonun biraz büyümesini sağlar */
+  background: linear-gradient(45deg, #388E3C, #66BB6A); 
+  transform: scale(1.05); 
 }
 
 .cart-button:active {
-  transform: scale(0.95); /* Tıklama efekti: buton küçükleşir */
-  background: linear-gradient(45deg, #2C6B3D, #43A047); /* Tıklanırken daha koyu yeşil geçişi */
+  transform: scale(0.95); 
+  background: linear-gradient(45deg, #2C6B3D, #43A047); 
 }
 
 

@@ -9,11 +9,12 @@ import {
   Tabs,
   Tab,
 } from "react-bootstrap";
-import {
-  CheckCircleFill,
-  ArrowLeft,
-  PlayCircleFill,
-} from "react-bootstrap-icons";
+import { 
+  CheckCircle as CheckCircleIcon,   
+  ArrowBack as ArrowBackIcon,        // ArrowLeft yerine
+  PlayCircle as PlayCircleIcon       // PlayCircleFill yerine
+} from "@mui/icons-material";
+
 import { useParams, useNavigate, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import jine from '../../../assets/jine.png';
@@ -53,7 +54,7 @@ const VideoDetay = () => {
   return (
     <Container className="py-4 justify-content-start">
       <Button variant="outline-secondary" className="mb-4" onClick={goBack}>
-        <ArrowLeft className="me-2" /> Geri Dön
+        <ArrowBackIcon className="me-2" /> Geri Dön
       </Button>
       <Row>
         
@@ -103,7 +104,7 @@ const VideoDetay = () => {
                             className="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
                           >
                             <div className="d-flex justify-content-start align-items-center">
-                              <PlayCircleFill
+                              <PlayCircleIcon  
                                 className="me-2"
                                 style={{ color: videoData.color }}
                               />
@@ -132,13 +133,13 @@ const VideoDetay = () => {
             </Card.Header>
             <Card.Body>
               <div className="d-flex align-items-center mb-3">
-                <CheckCircleFill className="me-2 text-success" />
+                <CheckCircleIcon className="me-2 text-success" />
                 <span>{videoData.videoCount} Video</span>
               </div>
 
               {videoData.features.map((feature, index) => (
                 <div key={index} className="d-flex align-items-center mb-2">
-                  <CheckCircleFill className="me-2 text-success" size={14} />
+                  <CheckCircleIcon className="me-2 text-success" size={14} />
                   <small>{feature}</small>
                 </div>
               ))}

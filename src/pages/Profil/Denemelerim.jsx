@@ -1,11 +1,11 @@
 import React from "react";
 import { Container, Row, Col, Card, Image, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom"; // Yönlendirme için useNavigate import et
+import { useNavigate } from "react-router-dom"; 
 import examIcon from "../../assets/examicon.jpg"; 
 import "./denemelerim.css";
 
 const ExamsPage = () => {
-  const navigate = useNavigate(); // useNavigate hook'u ile yönlendirme işlemini yapacağız
+  const navigate = useNavigate(); 
 
   const exams = [
     {
@@ -35,7 +35,7 @@ const ExamsPage = () => {
 
   const handleButtonClick = (exam) => {
     if (exam.navigateToResults) {
-      navigate("/sonuclarım"); 
+      navigate("sonuclarim"); 
     }
   };
 

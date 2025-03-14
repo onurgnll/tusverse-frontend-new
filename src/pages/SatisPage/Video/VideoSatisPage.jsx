@@ -10,7 +10,8 @@ import {
   Tab,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { CheckCircleFill } from "react-bootstrap-icons";
+import { CheckCircle as CheckCircleIcon } from "@mui/icons-material";
+
 import jineImage from "../../../assets/jine.png";
 import { Link } from "react-router-dom";
 import "./video.css";
@@ -252,13 +253,13 @@ const VideoSatis = () => {
                     className="d-flex align-items-center mb-2"
                     style={{ width: "fit-content" }}
                   >
-                    <CheckCircleFill className="me-1" /> {course.videoCount}{" "}
+                    <CheckCircleIcon className="me-1" /> {course.videoCount}{" "}
                     Video
                   </Badge>
 
                   {course.features.map((feature, index) => (
                     <div key={index} className="d-flex align-items-center mb-1">
-                      <CheckCircleFill
+                      <CheckCircleIcon 
                         className="me-1 text-success"
                         size={14}
                       />

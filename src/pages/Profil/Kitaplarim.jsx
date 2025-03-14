@@ -4,7 +4,7 @@ import bookIcon from "../../assets/bookicon.png"; // Replace with actual book ic
 import bookImage from "../../assets/kitap1.png"; // Replace with actual book image path
 import deliveredIcon from "../../assets/delivered.png"; // Teslim Edildi icon
 import preparingIcon from "../../assets/preparing.png"; // Hazırlanıyor icon
-import Cargo from "../../assets/Cargo.png"; // Kargoda icon
+import Cargo from "../../assets/cargo.png"; // Kargoda icon
 
 const BooksPage = () => {
   const books = [
