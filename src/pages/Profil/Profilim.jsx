@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import usersicon from "../../assets/images/usersicon.png";
-import kitap1 from "../../assets/images/kitap1.png";
+import usersicon from "../../assets/usersicon.png";
+import kitap1 from "../../assets/kitap1.png";
 
 const UserProfile = () => {
   const purchases = [

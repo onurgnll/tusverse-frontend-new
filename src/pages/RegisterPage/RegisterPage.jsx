@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { setLoggedStatus } from "../../redux/features/authSlice";
 import { requestWithoutAuth } from "../../helpers/requests";
 import RegisterForm from "./RegisterForm";
+import surec from '../../assets/surec.png';
 import "./register.css";
 
 const RegisterPage = () => {
@@ -64,14 +65,14 @@ const RegisterPage = () => {
       {/* Right Side: Image & Content */}
       <Grid item xs={12} md={6} className="right-content">
         <div className="image-container">
-          <img src="src/assets/images/telefonlar.jpg" alt="Telefonlar" className="side-image phone-image" />
+          <img src="src/assets/telefonlar.jpg" alt="Telefonlar" className="side-image phone-image" />
           <div className="text-box">
             <Typography variant="h6" gutterBottom>UYGULAMAMIZI İNDİRDİNİZ Mİ?</Typography>
             <Typography variant="body2" className="text-primary" gutterBottom>
               Tusverse mobil uygulaması ile videolara mobil cihazınızdan erişebilir, deneme sınavlarını çözebilirsiniz.
             </Typography>
           </div>
-          <img src="src/assets/images/sürec.png" alt="Süreç" className="side-image process-image" />
+          <img src={surec} alt="Süreç" className="side-image process-image" />
         </div>
       </Grid>
     </Grid>

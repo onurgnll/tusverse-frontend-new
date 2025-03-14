@@ -1,6 +1,14 @@
 import React from "react";
 import "./Footer.css";
-
+import Facebook from '../assets/Facebook.png';
+import Instagram from '../assets/Instagram.png';
+import Youtube from '../assets/Youtube.png';
+import mail from '../assets/mail.png';
+import telefon from '../assets/telefon.png';
+import beyazlogo from '../assets/beyazlogo.png';
+import appstore from '../assets/appstore.png';
+import googleplay from '../assets/googleplay.png';
+import payments from '../assets/payments.png'
 const Footer = () => {
   return (
     <footer className="container-fluid footer text-white mb-0 ">
@@ -17,17 +25,17 @@ const Footer = () => {
             {/* Sosyal Medya İkonları */}
             <div className="social-icons mt-3">
               <img
-                src="src/assets/images/Facebook.png"
+                src={Facebook}
                 alt="Facebook"
                 className="social-icon me-3"
               />
               <img
-                src="src/assets/images/Instagram.png"
+                src={Instagram}
                 alt="Instagram"
                 className="social-icon me-3"
               />
               <img
-                src="src/assets/images/Youtube.png"
+                src={Youtube}
                 alt="YouTube"
                 className="social-icon"
               />
@@ -39,7 +47,7 @@ const Footer = () => {
             <h5>İletişim Bilgilerimiz</h5>
             <div className="contact-item d-flex align-items-center justify-content-center mb-2">
               <img
-                src="src/assets/images/mail.png"
+                src={mail}
                 alt="Email Icon"
                 className="contact-icon me-2"
               />
@@ -47,7 +55,7 @@ const Footer = () => {
             </div>
             <div className="contact-item d-flex align-items-center justify-content-center">
               <img
-                src="src/assets/images/telefon.png"
+                src={telefon}
                 alt="Phone Icon"
                 className="contact-icon me-2"
               />
@@ -60,7 +68,7 @@ const Footer = () => {
             {/* Logo */}
             <div className="footer-logo-container">
               <img
-                src="src/assets/images/beyazlogo.png"
+                src={beyazlogo}
                 alt="Logo"
                 className="footer-logo"
               />
@@ -70,12 +78,12 @@ const Footer = () => {
               {/* Uygulama Mağazası İkonları */}
               <div className="d-flex justify-content-center mb-3">
                 <img
-                  src="src/assets/images/appstore.png"
+                  src={appstore}
                   alt="App Store"
                   className="store-icon me-2"
                 />
                 <img
-                  src="src/assets/images/googleplay.png"
+                  src={googleplay}
                   alt="Google Play"
                   className="store-icon"
                 />
@@ -83,7 +91,7 @@ const Footer = () => {
               {/* Ödeme Yöntemleri */}
               <div className="payment-methods">
                 <img
-                  src="src/assets/images/payments.png"
+                  src={payments}
                   alt="Ödeme Yöntemleri"
                   className="payment-image"
                 />

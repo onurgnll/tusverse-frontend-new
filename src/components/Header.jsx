@@ -49,7 +49,7 @@ const Header = () => {
       <div className="header-container">
       <img
   className="logo"
-  src="src/assets/images/siyah_logo.png"
+  src="src/assets/siyah_logo.png"
   alt="Logo"
   onClick={() => handleNavigation("/")}
   style={{ cursor: "pointer" }} 
@@ -111,7 +111,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { useNavigate } from "react-router-dom";
 import "./header.css";
-
+import siyahlogo from '../assets/siyah_logo.png'
 const routes = [
   {
     text: "Ders Videoları",
@@ -152,7 +152,7 @@ const Header = () => {
     <div className="header-container">
       <img
         className="logo"
-        src="src/assets/images/siyah_logo.png"
+        src={siyahlogo}
         alt="Logo"
         onClick={() => handleNavigation("/")}
         style={{ cursor: "pointer" }}

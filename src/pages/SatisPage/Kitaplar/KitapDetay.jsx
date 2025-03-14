@@ -12,17 +12,17 @@ import {
   Modal,
 } from "react-bootstrap";
 import BookIcon from "@mui/icons-material/Book";
-import questionIcon from "../../../assets/images/soruicon.png";
-import cargoIcon from "../../../assets/images/kargoicon.png";
+import questionIcon from "../../../assets/soruicon.png";
+import cargoIcon from "../../../assets/kargoicon.png";
 import "./bookdetail.css";
-
+import exdeneme from '../../../assets/exdeneme.png';
 const KitapDetay = () => {
   const { id } = useParams();
   const [book, setBook] = useState({
     id: id,
     title: "Patoloji Sorularla Son Tekrar Kitap",
     author: "Doç Dr. Emrullah Beyazyıldız",
-    image: "src/assets/images/patoloji.png",
+    image: "src/assets/patoloji.png",
     pages: 232,
     questions: 500,
     price: 50,
@@ -38,26 +38,26 @@ const KitapDetay = () => {
     samplePages: [
       {
         id: 1,
-        thumbnail: "src/assets/images/exdeneme.png",
-        fullImage: "src/assets/images/exdeneme.png",
+        thumbnail: exdeneme,
+        fullImage: exdeneme,
         title: "İçindekiler",
       },
       {
         id: 2,
-        thumbnail: "src/assets/images/exdeneme.png",
-        fullImage: "src/assets/images/exdeneme.png",
+        thumbnail: exdeneme,
+        fullImage: exdeneme,
         title: "Örnek Soru 1",
       },
       {
         id: 3,
-        thumbnail: "src/assets/images/exdeneme.png",
-        fullImage: "src/assets/images/exdeneme.png",
+        thumbnail: exdeneme,
+        fullImage: exdeneme,
         title: "Örnek Soru 2",
       },
       {
         id: 4,
-        thumbnail: "src/assets/images/exdeneme.png",
-        fullImage: "src/assets/images/exdeneme.png",
+        thumbnail: exdeneme,
+        fullImage: exdeneme,
         title: "Çözüm Örneği",
       },
     ],

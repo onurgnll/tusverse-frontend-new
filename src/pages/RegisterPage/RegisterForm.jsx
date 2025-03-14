@@ -7,6 +7,8 @@ import { Alert, message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/actions/authActions";
 import "./registerform.css"
+import siyahlogo from '../../assets/siyah_logo.png';
+import surec from '../../assets/surec.png'
 const RegisterForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -79,7 +81,7 @@ const RegisterForm = () => {
       alignItems="center"
       style={{ minHeight: "100vh" }}
     >
-      <div
+      {/* <div
         style={{
           position: "fixed",
           top: "-80px",
@@ -91,11 +93,11 @@ const RegisterForm = () => {
         onClick={handleLogoClick}
       >
         <img
-          src="src/assets/images/siyah_logo.png"
+          src={siyahlogo}
           alt="Logo"
           style={{ width: "300px", height: "auto" }}
         />
-      </div>
+      </div> */}
 
       <Grid
         item
@@ -205,7 +207,7 @@ const RegisterForm = () => {
       <Grid item xs={12} md={6} className="right-content">
         <div className="image-container">
           <img
-            src="src/assets/images/telefonlar.jpg"
+            src="src/assets/telefonlar.jpg"
             alt="Telefonlar"
             className="side-image phone-image"
           />
@@ -219,7 +221,7 @@ const RegisterForm = () => {
             </Typography>
           </div>
           <img
-            src="src/assets/images/sürec.png"
+            src={surec}
             alt="Süreç"
             className="side-image process-image"
           />

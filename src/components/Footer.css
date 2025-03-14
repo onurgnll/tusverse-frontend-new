@@ -15,7 +15,7 @@ html, body {
 }
 
 .footer {
-  background: url("src/assets/images/footer.png") no-repeat center center;
+  background: url("../assets/footer.png") no-repeat center center;
   background-size: cover;
   
   max-height: 300px !important;

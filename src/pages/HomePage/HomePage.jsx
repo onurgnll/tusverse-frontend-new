@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import AssignmentIcon from "@mui/icons-material/Assignment";
@@ -10,9 +8,15 @@ import { Carousel } from "antd";
 import "./home.css";
 import EgitmenlerPage from "../EgitmenlerPage/EgitmenlerPage";
 import FaqSection from "../../components/FaqSections";
-import { requestWithoutAuth } from "../../helpers/requests";
-import { useDispatch, useSelector } from "react-redux";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import doktor from '../../assets/doktor.png';
+import kitap1 from '../../assets/kitap1.png';
+import telefonlar from '../../assets/telefonlar.jpg';
+import img from '../../assets/img.jpg';
+import icon1 from '../../assets/icon1.png';
+import icon2 from '../../assets/icon2.png';
+import newicon from '../../assets/newicon.png';
+
+import { Icon2Circle } from "react-bootstrap-icons";
 const InfoBox = ({ title, value, icon, color }) => {
   //deneme sınavı exambox
   return (
@@ -39,37 +43,37 @@ const Homepage = () => {
       id: 1,
       name: "Ahmet Yılmaz",
       section: "İç Hastalıkları Uzmanı",
-      image: "src/assets/images/doktor.png",
+      image: doktor,
     },
     {
       id: 2,
       name: "Mehmet Kaya",
       section: "Kardiyoloji Uzmanı",
-      image: "src/assets/images/doktor.png",
+      image: doktor,
     },
     {
       id: 3,
       name: "Ayşe Yılmaz",
       section: "Nöroloji Uzmanı",
-      image: "src/assets/images/doktor.png",
+      image: doktor,
     },
     {
       id: 4,
       name: "Ahmet Yılmaz",
       section: "İç Hastalıkları Uzmanı",
-      image: "src/assets/images/doktor.png",
+      image: doktor,
     },
     {
       id: 5,
       name: "Mehmet Kaya",
       section: "Kardiyoloji Uzmanı",
-      image: "src/assets/images/doktor.png",
+      image: doktor,
     },
     {
       id: 6,
       name: "Ayşe Yılmaz",
       section: "Nöroloji Uzmanı",
-      image: "src/assets/images/doktor.png",
+      image: doktor,
     },
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -80,14 +84,14 @@ const Homepage = () => {
       description: `Sorularla Son Tekrar Tüm güncel bilgileri içeren kapsamlı TUS'a yönelik yeni nesil patoloji soru kitabı 6. Baskısı hazır. `,
       price: "3.999 TL",
       button: "Sepete Ekle",
-      image: "src/assets/images/kitap1.png",
+      image:kitap1,
     },
     {
       title: "DUS için Temel & Oral Patoloji",
       description: `3 Ay - 3 İzleme: Tüm konulara dair temel bilgiler ve sık çıkan soruların çözüm yolları.`,
       price: "3.999 TL",
       button: "Sepete Ekle",
-      image: "src/assets/images/kitap2.png",
+      image:kitap1,
     },
   ];
 
@@ -116,7 +120,7 @@ const Homepage = () => {
               <Row className="align-items-center mb-5">
                 <Col md={6}>
                   <img
-                    src="src/assets/images/telefonlar.jpg"
+                     src={telefonlar}
                     alt="Mobile App"
                     className="img-1"
                   />
@@ -140,7 +144,7 @@ const Homepage = () => {
               <Row className="align-items-center mb-5">
                 <Col md={6}>
                   <img
-                    src="src/assets/images/telefonlar.jpg"
+                    src={telefonlar}
                     alt="Mobile App"
                     className="img-1"
                   />
@@ -164,7 +168,7 @@ const Homepage = () => {
               <Row className="align-items-center mb-5">
                 <Col md={6}>
                   <img
-                    src="src/assets/images/telefonlar.jpg"
+                    src={telefonlar}
                     alt="Mobile App"
                     className="img-1"
                   />
@@ -219,7 +223,7 @@ const Homepage = () => {
             </div>
           </Col>
           <Col md={8} className="d-flex justify-content-center w-50 ">
-      <img src="src/assets/images/img.jpg" alt="Tusverse" className="responsive-img" style={{ maxHeight:'550px',marginLeft: '150px'}} />
+      <img src={img} alt="Tusverse" className="responsive-img" style={{ maxHeight:'550px',marginLeft: '150px'}} />
     </Col>
 
         
@@ -387,20 +391,20 @@ const Homepage = () => {
           <InfoBox
             title="Kitap İçeriği"
             value="62"
-            icon="src/assets/images/icon1.png"
+            icon={icon1}
             color="#008000"
           />
           <InfoBox
             title="Video İçeriği"
             value="62"
-            icon="src/assets/images/icon2.png"
+            icon={icon2}
             color="#FF0000"
           />
 
           <InfoBox
             title="Kayıtlı Kullanıcı"
             value="11,603"
-            icon="src/assets/images/newicon.png"
+            icon={newicon}
             color="#0B115F"
           />
         </div>

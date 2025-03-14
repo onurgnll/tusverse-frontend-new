@@ -16,7 +16,7 @@ import {
 } from "react-bootstrap-icons";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import jine from '../../../assets/jine.png';
 import "./video.css";
 
 const VideoDetay = () => {
@@ -64,7 +64,7 @@ const VideoDetay = () => {
               <Card className="mb-4">
                 <Card.Img
                   variant="top"
-                  src="src/assets/images/jine.png" 
+                  src={jine}
                   alt="Video Image"
                   style={{ objectFit: "cover", width: "100%", height: "300px" }}
                 />

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card, Image, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom"; // Yönlendirme için useNavigate import et
-import examIcon from "../../assets/images/examicon.jpg"; 
+import examIcon from "../../assets/examicon.jpg"; 
 import "./denemelerim.css";
 
 const ExamsPage = () => {
