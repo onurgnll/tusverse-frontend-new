@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CheckCircleFill } from "react-bootstrap-icons";
-import jineImage from "../../../assets/images/jine.png";
+import jineImage from "../../../assets/jine.png";
 import { Link } from "react-router-dom";
 import "./video.css";
 

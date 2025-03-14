@@ -119,7 +119,7 @@ const LoginPage = () => {
     </div>
 
     <div className="second-image-container">
-      <img src="src/assets/images/sürec.png" alt="Süreç" className="second-image" />
+      <img src="src/assets/surec.png" alt="Süreç" className="second-image" />
     </div>
   </Grid>
 </Grid>

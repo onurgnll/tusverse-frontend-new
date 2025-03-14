@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
-import bookIcon from "../../assets/images/bookicon.png"; // Replace with actual book icon path
-import bookImage from "../../assets/images/kitap1.png"; // Replace with actual book image path
-import deliveredIcon from "../../assets/images/delivered.png"; // Teslim Edildi icon
-import preparingIcon from "../../assets/images/preparing.png"; // Hazırlanıyor icon
-import Cargo from "../../assets/images/Cargo.png"; // Kargoda icon
+import bookIcon from "../../assets/bookicon.png"; // Replace with actual book icon path
+import bookImage from "../../assets/kitap1.png"; // Replace with actual book image path
+import deliveredIcon from "../../assets/delivered.png"; // Teslim Edildi icon
+import preparingIcon from "../../assets/preparing.png"; // Hazırlanıyor icon
+import Cargo from "../../assets/Cargo.png"; // Kargoda icon
 
 const BooksPage = () => {
   const books = [

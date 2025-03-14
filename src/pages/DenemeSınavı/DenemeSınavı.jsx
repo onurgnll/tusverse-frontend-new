@@ -19,7 +19,7 @@ import {
   Alert,
   AlertTitle,
 } from "@mui/material";
-import orbitaImage from "../../assets/images/orbita.jpg";
+import orbitaImage from "../../assets/orbita.jpg";
 import { Menu as MenuIcon } from "@mui/icons-material";
 import "./denemesınavı.css";
 

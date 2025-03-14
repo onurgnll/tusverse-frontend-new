@@ -1,39 +1,39 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom"; // Ensure you import Link from react-router-dom
-
+import doktor2 from '../../assets/doktor2.png';
 import "./egitmenler.css"; // Import the CSS file
 
 const instructors = [
   {
     name: "Doç. Dr. Emrullah Beyazyıldız",
     specialization: "Patoloji",
-    image: "src/assets/images/doktor2.png", 
+    image: doktor2, 
   },
   {
     name: "Doç. Dr. Emrullah Beyazyıldız",
     specialization: "Patoloji",
-    image: "src/assets/images/doktor2.png", 
+    image: doktor2, 
   },
   {
     name: "Doç. Dr. Emrullah Beyazyıldız",
     specialization: "Patoloji",
-    image: "src/assets/images/doktor2.png", 
+    image: doktor2, 
   },
   {
     name: "Doç. Dr. Emrullah Beyazyıldız",
     specialization: "Patoloji",
-    image: "src/assets/images/doktor2.png", 
+    image: doktor2, 
   },
   {
     name: "Doç. Dr. Emrullah Beyazyıldız",
     specialization: "Patoloji",
-    image: "src/assets/images/doktor2.png", 
+    image: doktor2,  
   },
   {
     name: "Doç. Dr. Emrullah Beyazyıldız",
     specialization: "Patoloji",
-    image: "src/assets/images/doktor2.png", 
+    image: doktor2, 
   },
 ];
 

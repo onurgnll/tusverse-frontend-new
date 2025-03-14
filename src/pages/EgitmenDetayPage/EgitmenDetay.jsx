@@ -4,12 +4,13 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import BookSection from "../../components/BookSection";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
-import videoicon from "../../assets/images/videoicon.png";
-import questionIcon from "../../assets/images/soruicon.png";
-import cargoIcon from "../../assets/images/kargoicon.png";
+import videoicon from "../../assets/videoicon.png";
+import questionIcon from "../../assets/soruicon.png";
+import cargoIcon from "../../assets/kargoicon.png";
 import "./egitmendetay.css";
 import "../../components/videosection.css"; // VideoSection ile ilgili stiller
 import VideoSection from "../../components/VideoSection"
+import doktor2 from '../../assets/doktor2.png'
 const EgitmenDetay = () => {
   return (
     <>
@@ -17,7 +18,7 @@ const EgitmenDetay = () => {
         {/* Profil Resmi ve Başlık */}
         <div className="profile-section">
           <img
-            src="src/assets/images/doktor2.png"
+            src={doktor2}
             alt="Profile"
             className="profile-image"
           />
@@ -74,7 +75,7 @@ const EgitmenDetay = () => {
            
             <Card.Img
               variant="top"
-              src="src/assets/images/jine.png"
+              src="src/assets/jine.png"
               alt="Video Cover"
               className="book-image"
             />

@@ -13,7 +13,7 @@ const Smallheader = () => {
       className="smallheader position-absolute"
       onClick={() => handleNavigation("/")}
     >
-      <img src="src/assets/images/siyah_logo.png" alt="Logo" className="smallheader-logo" />
+      <img src="src/assets/siyah_logo.png" alt="Logo" className="smallheader-logo" />
     </div>
   );
 };
