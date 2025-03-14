@@ -22,6 +22,7 @@ import Sepetim from "./pages/Profil/Sepetim"
 import KitapDetay from "./pages/SatisPage/Kitaplar/KitapDetay";
 import VideoDetay from "./pages/SatisPage/Video/Videodetay";
 import VideoSection from "./components/VideoSection";
+import Sonuclarım from "./pages/Profil/Sonuclarım";
 import "./App.css"
 
 const App = () => {
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/sepetim" element={<Sepetim />} />
           <Route path="/kitapdetay" element={<KitapDetay />} />
           <Route path="/videodetay" element={<VideoDetay />} />
+          <Route path="/sonuclarım" element={<Sonuclarım />} />
           
   
           

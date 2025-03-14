@@ -15,6 +15,9 @@ import {
   DialogContent,
   DialogTitle,
   IconButton,
+  Snackbar,
+  Alert,
+  AlertTitle,
 } from "@mui/material";
 import orbitaImage from "../../assets/images/orbita.jpg";
 import { Menu as MenuIcon } from "@mui/icons-material";
@@ -43,9 +46,29 @@ Os nasale`;
   const [currentPage, setCurrentPage] = useState(1);
   const questionsPerPage = 5;
   const [answers, setAnswers] = useState({});
-  const [openDialog, setOpenDialog] = useState(false); 
+  const [openDialog, setOpenDialog] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
+  const handleConfirmFinish = () => {
+    setOpenConfirmDialog(true);
+  };
+
+  const handleCloseConfirmDialog = () => {
+    setOpenConfirmDialog(false);
+  };
+
+  const handleFinishExam = () => {
+    setOpenConfirmDialog(false);
+    setOpenSnackbar(true);
+
+    // 2 saniye sonra ana sayfaya yönlendir
+    setTimeout(() => {
+      navigation.navigate("/");
+    }, 2000);
+  };
 
   const parseQuestions = (fileContent) => {
     const lines = fileContent.split("\n");
@@ -91,7 +114,10 @@ Os nasale`;
   };
 
   const handlePageChange = (newPage) => {
-    if (newPage > 0 && newPage <= Math.ceil(questions.length / questionsPerPage)) {
+    if (
+      newPage > 0 &&
+      newPage <= Math.ceil(questions.length / questionsPerPage)
+    ) {
       setCurrentPage(newPage);
     }
   };
@@ -148,98 +174,35 @@ Os nasale`;
               </Box>
             ))}
             <Box display="flex" justifyContent="space-between">
-  <Button
-    variant="outlined"
-    color="primary"
-    onClick={() => handlePageChange(currentPage - 1)}
-    disabled={currentPage === 1}
-    sx={{
-      fontSize: '0.8rem',
-      padding: '4px 8px',  
-      maxWidth: '150px',   
-    }}
-    className="page-navigation-button"
-  >
-    Önceki Sayfa
-  </Button>
-  <Typography variant="body1" sx={{ fontSize: '0.8rem' }}>Sayfa {currentPage}</Typography>
-  <Button
-    variant="outlined"
-    color="primary"
-    onClick={() => handlePageChange(currentPage + 1)}
-    disabled={currentPage === Math.ceil(questions.length / questionsPerPage)}
-    sx={{
-      fontSize: '0.8rem', 
-      padding: '4px 8px',  
-      maxWidth: '150px',   
-    }}
-    className="page-navigation-button"
-  >
-    Sonraki Sayfa
-  </Button>
-</Box>
-
-          </Card>
-        </Grid>
-
-        {!isMobile && (
-          <Grid item xs={12} sm={4} className="exam-page-right-grid">
-          <Card
-            sx={{
-              p: 3,
-              position: "fixed",
-              top: 200,
-              marginBottom:20,
-              zIndex: 1100,
-              transition: "top 0.3s ease-in-out",
-              height: 'auto', 
-            }}
-          >
-            <Typography
-              variant="h6"
-              fontWeight="bold"
-              color="error"
-              textAlign="center"
-              mb={2}
-            >
-              2 Saat 16 Dakika 43 Saniye Kaldı
-            </Typography>
-            
-           
-            <div className="question-buttons-container">
-              {[...Array(questions.length)].map((_, idx) => (
-                <Button
-                  key={idx}
-                  variant="contained"
-                  sx={{
-                    backgroundColor: answers[idx] ? "#4caf50" : "#ddd",
-                    color: answers[idx] ? "#fff" : "#000",
-                  }}
-                  className="question-button"
-                >
-                  {idx + 1}
-                </Button>
-              ))}
-            </div>
-        
-            <Box mt={4} className="page-navigation-container" >
               <Button
                 variant="outlined"
                 color="primary"
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
+                sx={{
+                  fontSize: "0.8rem",
+                  padding: "4px 8px",
+                  maxWidth: "150px",
+                }}
                 className="page-navigation-button"
               >
                 Önceki Sayfa
               </Button>
-              <Button variant="outlined" color="success">
-                Sınavı Tamamla
-              </Button>
+              <Typography variant="body1" sx={{ fontSize: "0.8rem" }}>
+                Sayfa {currentPage}
+              </Typography>
               <Button
                 variant="outlined"
                 color="primary"
                 onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === Math.ceil(questions.length / questionsPerPage)}
+                disabled={
+                  currentPage === Math.ceil(questions.length / questionsPerPage)
+                }
+                sx={{
+                  fontSize: "0.8rem",
+                  padding: "4px 8px",
+                  maxWidth: "150px",
+                }}
                 className="page-navigation-button"
               >
                 Sonraki Sayfa
@@ -247,65 +210,192 @@ Os nasale`;
             </Box>
           </Card>
         </Grid>
-        
-        
+
+        {!isMobile && (
+          <Grid item xs={12} sm={4} className="exam-page-right-grid">
+            <Card
+              sx={{
+                p: 3,
+                position: "sticky",
+                top: 200,
+                marginBottom: 20,
+                zIndex: 1000,
+                transition: "top 0.3s ease-in-out",
+
+                height: "auto",
+              }}
+            >
+              <Typography
+                variant="h6"
+                fontWeight="bold"
+                color="error"
+                textAlign="center"
+                mb={2}
+              >
+                2 Saat 16 Dakika 43 Saniye Kaldı
+              </Typography>
+
+              <div className="question-buttons-container">
+                {[...Array(questions.length)].map((_, idx) => (
+                  <Button
+                    key={idx}
+                    variant="contained"
+                    sx={{
+                      backgroundColor: answers[idx] ? "#4caf50" : "#ddd",
+                      color: answers[idx] ? "#fff" : "#000",
+                    }}
+                    className="question-button"
+                  >
+                    {idx + 1}
+                  </Button>
+                ))}
+              </div>
+
+              <Box mt={4} className="page-navigation-container">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="page-navigation-button"
+                >
+                  Önceki Sayfa
+                </Button>
+                <Button
+                  variant="outlined"
+                  color="success"
+                  onClick={handleConfirmFinish}
+                >
+                  Sınavı Tamamla
+                </Button>
+
+                {/* Onay Diyaloğu */}
+                <Dialog
+                  open={openConfirmDialog}
+                  onClose={handleCloseConfirmDialog}
+                  fullWidth
+                  maxWidth="xs"
+                >
+                  <DialogTitle>Sınavı Tamamla</DialogTitle>
+                  <DialogContent>
+                    <Typography>
+                      Sınavı bitirmek istediğinize emin misiniz?
+                    </Typography>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleCloseConfirmDialog} color="primary">
+                      İptal
+                    </Button>
+                    <Button onClick={handleFinishExam} color="error">
+                      Tamamla
+                    </Button>
+                  </DialogActions>
+                </Dialog>
+
+               
+                <Snackbar
+                  open={openSnackbar}
+                  autoHideDuration={2000}
+                  onClose={() => setOpenSnackbar(false)}
+                  anchorOrigin={{ vertical: "top", horizontal: "center" }} 
+                >
+                  <Alert variant="filled" severity="success">
+                    <AlertTitle>Tebrikler, Sınav Tamamlandı</AlertTitle>
+                    Ana sayfaya yönlendiriliyorsunuz
+                  </Alert>
+                </Snackbar>
+
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={
+                    currentPage ===
+                    Math.ceil(questions.length / questionsPerPage)
+                  }
+                  className="page-navigation-button"
+                >
+                  Sonraki Sayfa
+                </Button>
+              </Box>
+            </Card>
+          </Grid>
         )}
       </Grid>
 
       {isMobile && (
-       <Box
-       sx={{
-         position: "fixed",
-         bottom: 10,
-         right: 20,
-         zIndex: 1000,
-         backgroundColor: "#4caf50",
-         borderRadius: "50%",
-         p: 2,
-       }}
-       className="floating-menu-button"
-     >
-       <IconButton color="white" onClick={handleMenuClick}>
-         <MenuIcon />
-       </IconButton>
-     </Box>
-     
+        <Box
+          sx={{
+            position: "fixed",
+            bottom: 10,
+            right: 20,
+            zIndex: 1000,
+            backgroundColor: "#4caf50",
+            borderRadius: "50%",
+            p: 2,
+          }}
+          className="floating-menu-button"
+        >
+          <IconButton color="white" onClick={handleMenuClick}>
+            <MenuIcon />
+          </IconButton>
+        </Box>
       )}
-<Dialog open={openDialog} onClose={handleCloseDialog} fullWidth maxWidth="sm" className="dialog-container">
-  <DialogTitle className="dialog-title">İçerik</DialogTitle>
-  <DialogContent className="dialog-content">
-    <Typography variant="h6" fontWeight="bold">
-      2 Saat 16 Dakika 43 Saniye Kaldı
-    </Typography>
-    <Grid container spacing={1} justifyContent="center" alignItems="center">
-      {[...Array(questions.length)].map((_, idx) => (
-        <Grid item xs={2} sm={2} md={1} key={idx} className="question-button">
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: answers[idx] ? "#4caf50" : "#ddd",
-              color: answers[idx] ? "#fff" : "#000",
-              fontSize: '0.8rem', 
-              padding: '6px', 
-              width: '40px', 
-              height: '40px', 
-              minWidth: '40px', 
-            }}
+      <Dialog
+        open={openDialog}
+        onClose={handleCloseDialog}
+        fullWidth
+        maxWidth="sm"
+        className="dialog-container"
+      >
+        <DialogTitle className="dialog-title">İçerik</DialogTitle>
+        <DialogContent className="dialog-content">
+          <Typography variant="h6" fontWeight="bold">
+            2 Saat 16 Dakika 43 Saniye Kaldı
+          </Typography>
+          <Grid
+            container
+            spacing={1}
+            justifyContent="center"
+            alignItems="center"
           >
-            {idx + 1}
+            {[...Array(questions.length)].map((_, idx) => (
+              <Grid
+                item
+                xs={2}
+                sm={2}
+                md={1}
+                key={idx}
+                className="question-button"
+              >
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: answers[idx] ? "#4caf50" : "#ddd",
+                    color: answers[idx] ? "#fff" : "#000",
+                    fontSize: "0.8rem",
+                    padding: "6px",
+                    width: "40px",
+                    height: "40px",
+                    minWidth: "40px",
+                  }}
+                >
+                  {idx + 1}
+                </Button>
+              </Grid>
+            ))}
+          </Grid>
+        </DialogContent>
+        <DialogActions className="dialog-actions">
+          <Button
+            onClick={handleCloseDialog}
+            color="primary"
+            className="dialog-button"
+          >
+            Kapat
           </Button>
-        </Grid>
-      ))}
-    </Grid>
-  </DialogContent>
-  <DialogActions className="dialog-actions">
-    <Button onClick={handleCloseDialog} color="primary" className="dialog-button">
-      Kapat
-    </Button>
-  </DialogActions>
-</Dialog>
-
-
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };

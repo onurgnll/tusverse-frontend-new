@@ -1,5 +1,5 @@
 header, footer {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .card2-container {
@@ -255,6 +255,18 @@ background-color: #f8f9fa; /* Hafif gri hover etkisi */
 color: #0056b3; /* Daha koyu mavi hover etkisi */
 }
 
+.carousel-container {
+  margin-top: -30px; /* Moves the entire carousel up */
+}
+
+.alt-kisim {
+  margin-top: -20px; /* Adjusts the space between the row and its content */
+}
+
+.card-custom {
+  margin-top: -10px; /* Moves the cards up slightly */
+}
+
 
 /* Customize the carousel navigation arrows */
 .carousel-control-prev-icon,
@@ -266,10 +278,7 @@ border-radius: 50%; /* Optional: Make the arrows rounded */
 margin-left: 70%;
 }
 
-.carousel-control-prev-icon::before,
-.carousel-control-next-icon::before {
-font-size: 1.5rem; /* Optional: Adjust the font size if needed */
-}
+
 
 
 /* Container for the Eğitimlerim section */
@@ -359,11 +368,13 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
 
 .custom2-dots {
   position: absolute;
-  bottom: 10px; /* Dots'u alt kısma yerleştir */
+  margin-bottom: 50px; /* Dots'u alt kısma yerleştir */
   left: 50% !important;
   transform: translateX(-50%);
-  top: 270px;
+  top: 350px;
+
   display: flex;
+ 
   justify-content: center;
   gap: 20px; /* Noktalar arasındaki boşluğu ayarlayın */
 }
@@ -507,6 +518,9 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
 }
 
 
+
+
+
 /* Handle very small screen sizes (phones) */
 @media (max-width: 480px) {
   
@@ -584,6 +598,10 @@ font-size: 1.5rem; /* Optional: Adjust the font size if needed */
   .btn-outline-secondary {
     font-size: 1px;
     padding: 0px 0px;
+  }
+  .responsive-img {
+    
+    margin-left: -50px !important;  
   }
 }
 
