@@ -2,12 +2,11 @@
   display: flex;
   align-items: center;
   justify-content:space-between ; 
-  transition: all 0.3s ease;
   padding: 10px 20px;
   margin-top: 15px;
   background-color: #fff;
   height: 150px;
-  position: relative;
+  position: none;
   top: 0px;
   left: 0;
   width: 100%;
@@ -15,62 +14,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
-.header-container.scrolled {
-  background-color: #fff;
-  padding: 10px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.button-container.scrolled-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.custom-button {
-  margin: 5px;
-  transition: all 0.3s ease;
-}
-
-.custom-button.green {
-  background-color: #4caf50;
-}
-
-.custom-button.gold {
-  background-color: #ff9800;
-}
-
-.custom-button.scrolled {
-  font-size: 14px;
-  padding: 5px 10px;
-}
-
-.mobile-menu .ant-dropdown-menu {
-  min-width: 200px;
-}
-
-
-
-.button-container.scrolled .button-row > .custom-button {
-  margin-top: 10px; /* Add some spacing when scrolled */
-}
-
-.custom-button.green, .custom-button.gold {
-  transition: all 0.3s ease-in-out;
-}
-
-/* Optionally, you can add more styles for when scrolled */
-.scrolled .custom-button.green {
-  position: relative;
-  top: 20px; /* Moves the button down when scrolled */
-}
 
 
 
@@ -82,11 +25,7 @@
   transform: translateY(-50%);
   height: 100%;
   display: flex;
-  transition: height 0.3s ease-in-out, transform 0.3s ease-in-out;
   align-items: center;
-}
-.logo:hover {
-  transform: scale(1.1); /* Büyütme oranı */
 }
 
 .logo-container img {

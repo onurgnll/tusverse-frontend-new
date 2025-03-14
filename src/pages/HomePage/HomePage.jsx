@@ -104,7 +104,7 @@ const Homepage = () => {
   };
   return (
     <>
-      <Container fluid className="p-4">
+      <Container fluid className="p-4 mt-5">
         <div className="carousel-container">
           <Carousel
             autoplay={true}
@@ -186,10 +186,10 @@ const Homepage = () => {
         </div>
       </Container>
 
-      <Container fluid className="p-5">
+      <Container fluid className="p-5 mt-0">
         {/* Orta Kısım */}
         <Row className="mb-5 d-flex align-items-center">
-          <Col md={4} className="text-left d- align-items-center">
+          <Col md={4} className="text-left d- align-items-center ">
             <h3 className="text-dark">Tusverse</h3>
             <p>Uzmanlar tarafından hazırlanmış</p>
 
@@ -218,19 +218,14 @@ const Homepage = () => {
               </div>
             </div>
           </Col>
+          <Col md={8} className="d-flex justify-content-center w-50 ">
+      <img src="src/assets/images/img.jpg" alt="Tusverse" className="responsive-img" style={{ maxHeight:'550px',marginLeft: '150px'}} />
+    </Col>
 
-          <Col md={8} className="d-flex align-items-center ">
-            <Row className="w-100">
-              <Col md={6} className="mb-3 custom-margin-top">
-                <img
-                  src="src/assets/images/img.jpg"
-                  alt="Feature 1"
-                  className="img-2 w-100"
-                />
-              </Col>
+        
             </Row>
-          </Col>
-        </Row>
+          
+        
       </Container>
 
       <div className="carousel-container">

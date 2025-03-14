@@ -1,8 +1,12 @@
 import React from "react";
 import { Container, Row, Col, Card, Image, Button } from "react-bootstrap";
-import examIcon from "../../assets/images/examicon.jpg"; // Sınav ikonunu buraya ekleyin
-import "./denemelerim.css"
+import { useNavigate } from "react-router-dom"; // Yönlendirme için useNavigate import et
+import examIcon from "../../assets/images/examicon.jpg"; 
+import "./denemelerim.css";
+
 const ExamsPage = () => {
+  const navigate = useNavigate(); // useNavigate hook'u ile yönlendirme işlemini yapacağız
+
   const exams = [
     {
       id: 1,
@@ -25,8 +29,15 @@ const ExamsPage = () => {
       questions: "120 Soru",
       buttonText: "Sonuçları Görüntüle",
       buttonVariant: "info",
+      navigateToResults: true, 
     },
   ];
+
+  const handleButtonClick = (exam) => {
+    if (exam.navigateToResults) {
+      navigate("/sonuclarım"); 
+    }
+  };
 
   return (
     <Container fluid className="mt-5 mb-5">
@@ -62,13 +73,13 @@ const ExamsPage = () => {
                   </div>
                 </Card.Text>
                 <div className="text-center">
-                <Button
-  variant={exam.buttonVariant}
-  className="px-4 py-2 enlarge-button"
->
-  {exam.buttonText}
-</Button>
-
+                  <Button
+                    variant={exam.buttonVariant}
+                    className="px-4 py-2 enlarge-button"
+                    onClick={() => handleButtonClick(exam)} 
+                  >
+                    {exam.buttonText}
+                  </Button>
                 </div>
               </Card.Body>
             </Card>

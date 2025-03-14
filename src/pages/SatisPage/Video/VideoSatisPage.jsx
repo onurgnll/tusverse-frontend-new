@@ -215,8 +215,8 @@ const VideoSatis = () => {
       </div>
       <Row className="g-4">
         {videoCourses[activeCategory].map((course) => (
-          <Col key={course.id} xs={12} sm={6} md={6} lg={3} xl={3}>
-            {/* Genişliği değiştirdik */}
+         <Col key={course.id} xs={12} sm={6} md={4} lg={4} xl={4}> 
+            
             <Card className="h-100 shadow-sm border-light">
               <Card.Header className="bg-white border-bottom-0 pt-3 pb-0">
                 <h5 className="text-center mb-0">{course.title}</h5>
@@ -268,19 +268,24 @@ const VideoSatis = () => {
                 </div>
 
                 <div className="mt-auto">
-                  <Button
-                    variant="outline-secondary"
-                    size="sm"
-                    className="w-100 mb-2"
-                    style={{
-                      height: 30,
-                      backgroundColor: course.color,
-                      color: "white",
-                      borderColor: course.color,
-                    }}
-                  >
-                    {activeCategory}
-                  </Button>
+                <Button
+  variant="outline-secondary"
+  size="sm"
+  className="w-100 mb-2"
+  style={{
+    height: 30,
+    backgroundColor: course.color,
+    color: "white",
+    borderColor: course.color,
+    marginTop: 'auto'
+  }}
+>
+  {activeCategory === 'konu-anlatimi' ? 'Konu Anlatımı' : 
+   activeCategory === 'soru-kampi' ? 'Soru Kampı' : 
+   activeCategory === 'tekrar-kampi' ? 'Tekrar Kampı' : activeCategory}
+</Button>
+
+
 
                   <Button variant="outline-info" className="w-100 mb-2">
                     <Link
