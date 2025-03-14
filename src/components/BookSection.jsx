@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom"; 
 import questionIcon from "../assets/soruicon.png";
 import cargoIcon from "../assets/kargoicon.png";
 import BookIcon from "@mui/icons-material/Book";

@@ -1,6 +1,6 @@
 .smallheader {
     position: absolute;
-    top: -220px; /* Masaüstünde yukarıda */
+    top: -220px; 
     left: 50%;
     transform: translateX(-50%);
   
